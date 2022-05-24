@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce-website",
+  "version": "1.0.0",
+  "description": "E-Commerce Full Stack Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proj-2/E-Commerce-Website.git"
+  },
+  "author": "Group_2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/proj-2/E-Commerce-Website/issues"
+  },
+  "homepage": "https://github.com/proj-2/E-Commerce-Website#readme"
+}
