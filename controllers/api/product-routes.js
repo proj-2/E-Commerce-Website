@@ -3,7 +3,7 @@ const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("
 
 router.get('/', (req, res) => {
     Product.findAll({
-        attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id'],
+        attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id', 'shipping_id'],
         include: [
             {
                 model: User,
