@@ -24,7 +24,7 @@ Product.init(
             allowNull: false
         },
         SKU: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         origin: {
