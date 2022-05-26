@@ -31,14 +31,6 @@ Product.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        shipping_provider_id: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'shipping_provider',
-                key: 'id'
-            }
-        },
         category_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -53,7 +45,18 @@ Product.init(
             references: {
                 model: 'user',
                 key: 'id'
-            }
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
+        },
+        shipping_provider_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'shipping_provider',
+                key: 'id'
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
         }
     },
     {

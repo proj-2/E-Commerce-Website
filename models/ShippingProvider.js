@@ -14,16 +14,6 @@ ShippingProvider.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        product_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'product',
-                key: 'id'
-            },
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
         }
     },
     {
