@@ -15,11 +15,11 @@ User.hasMany(Product, {
 });
 
 Product.belongsTo(ShippingProvider, {
-    foreignKey: 'shipping_provider_id'
+    foreignKey: 'shipping_id'
 });
 
 ShippingProvider.hasMany(Product, {
-    foreignKey: 'shipping_provider_id'
+    foreignKey: 'shipping_id'
 })
 
 Product.belongsTo(Category, {
@@ -38,7 +38,7 @@ Product.belongsToMany(Tag, {
 
 Tag.belongsToMany(Product, {
     through: ProductTag,
-    as: 'product',
+    as: 'products',
     foreignKey: 'tag_id'
 })
 

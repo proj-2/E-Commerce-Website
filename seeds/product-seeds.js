@@ -9,7 +9,7 @@ const productData = [
         origin: 'Brampton',
         category_id: 1,
         user_id: 1,
-        shipping_provider_id: 1
+        shipping_id: 1
     },
     {
         name: 'Axios',
@@ -19,7 +19,7 @@ const productData = [
         origin: 'Toronto',
         category_id: 2,
         user_id: 2,
-        shipping_provider_id: 2
+        shipping_id: 2
     },
     {
         name: 'Django',
@@ -27,9 +27,9 @@ const productData = [
         price: 19.99,
         SKU: 213,
         origin: 'Vancouver',
-        category_id: 2,
+        category_id: 3,
         user_id: 3,
-        shipping_provider_id: 3
+        shipping_id: 3
     },
 ];
 

@@ -20,7 +20,7 @@ ShippingProvider.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        underscored: false,
+        underscored: true,
         modelName: 'shipping_provider'
     }
 )

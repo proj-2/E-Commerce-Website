@@ -36,27 +36,21 @@ Product.init(
             references: {
                 model: 'category',
                 key: 'id'
-            },
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            }
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'
-            },
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            }
         },
-        shipping_provider_id: {
+        shipping_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'shipping_provider',
                 key: 'id'
-            },
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            }
         }
     },
     {
