@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection")
+const sequelize = require("../config/connection");
 
 class Product extends Model { };
 
@@ -9,7 +9,7 @@ Product.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: trues
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
@@ -21,23 +21,11 @@ Product.init(
         },
         price: {
             type: DataTypes.DECIMAL(6, 2),
-            allowNull: false,
-            validate: {
-                isDecimal: true
-            }
+            allowNull: false
         },
         SKU: {
             type: DataTypes.NUMBER,
             allowNull: false
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            },
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
         },
         origin: {
             type: DataTypes.STRING,
@@ -45,16 +33,27 @@ Product.init(
         },
         shipping_provider_id: {
             type: DataTypes.INTEGER,
+            allowNull: true,
             references: {
-                model: 'shippingprovider',
+                model: 'shipping_provider',
+                key: 'id'
+            }
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'category',
                 key: 'id'
             },
-            onDelete: 'SET NULL',
+            onDelete: 'CASCADE',
             onUpdate: 'CASCADE'
         },
-        image: {
-            type: DataTypes.STRING,
-            allowNull: false
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         }
     },
     {

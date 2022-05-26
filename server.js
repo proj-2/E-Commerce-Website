@@ -8,7 +8,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 require('dotenv').config();
 const sess = {
-    secret: 'vnc4785ncit37y8cinh37',
+    secret: 'ncnc48wincto4w8hct4wo',
     cookie: {
         expires: 15 * 60 * 1000
     },
@@ -34,6 +34,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(require("./controllers/"));
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Listening on ${PORT}`))
 })

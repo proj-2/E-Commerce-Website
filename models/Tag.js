@@ -1,6 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const bcrypt = require('bcrypt');
 
 class Tag extends Model { };
 
@@ -15,21 +14,15 @@ Tag.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        product_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'product',
-                key: 'id'
-            }
         }
     },
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'tag'
+        modelName: 'tag',
     }
-)
+);
 
 module.exports = Tag;

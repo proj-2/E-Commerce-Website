@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class ShippingProvider extends Model { };
+class ProductTag extends Model { };
 
-ShippingProvider.init(
+ProductTag.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,28 +11,28 @@ ShippingProvider.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         product_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'product',
                 key: 'id'
-            },
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE'
+            }
+        },
+        tag_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'tag',
+                key: 'key'
+            }
         }
     },
     {
         sequelize,
         timestamps: false,
+        underscored: true,
         freezeTableName: true,
-        underscored: false,
-        modelName: 'shipping_provider'
+        modelName: 'product_tag'
     }
 )
 
-module.exports = ShippingProvider;
+module.exports = ProductTag
