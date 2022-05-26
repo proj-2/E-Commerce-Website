@@ -27,7 +27,7 @@ const productData = [
         price: 19.99,
         SKU: 213,
         origin: 'Vancouver',
-        category_id: 3,
+        category_id: 2,
         user_id: 3,
         shipping_id: 3
     },

@@ -2,13 +2,13 @@ const ShippingProvider = require("../models/ShippingProvider")
 
 const shippingData = [
     {
-        name: 'UPS',
+        shipping_name: 'UPS',
     },
     {
-        name: 'FEDEX',
+        shipping_name: 'FEDEX',
     },
     {
-        name: 'DHL',
+        shipping_name: 'DHL',
     }
 ]
 

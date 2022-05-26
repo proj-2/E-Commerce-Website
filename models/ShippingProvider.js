@@ -11,7 +11,7 @@ ShippingProvider.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        shipping_name: {
             type: DataTypes.STRING,
             allowNull: false
         }

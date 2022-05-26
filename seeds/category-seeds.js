@@ -2,13 +2,13 @@ const Category = require("../models/Category")
 
 const categoryData = [
     {
-        name: 'Hardware'
+        category_name: 'Hardware'
     },
     {
-        name: 'Software'
+        category_name: 'Software'
     }
 ]
 
-const seedCategories = () => Category.bulkCreate(categoryData)
+const seedCategory = () => Category.bulkCreate(categoryData)
 
-module.exports = seedCategories;
+module.exports = seedCategory;

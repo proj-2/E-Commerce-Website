@@ -11,11 +11,11 @@ router.get('/', (req, res) => {
             },
             {
                 model: Category,
-                attributes: ['id', 'name']
+                attributes: ['id', 'category_name']
             },
             {
                 model: ShippingProvider,
-                attributes: ['id', 'name']
+                attributes: ['id', 'shipping_name']
             },
             {
                 model: Tag,
