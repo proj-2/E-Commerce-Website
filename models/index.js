@@ -5,29 +5,28 @@ const Tag = require("./Tag");
 const ShippingProvider = require("./ShippingProvider");
 const ProductTag = require("./ProductTag")
 
+User.hasMany(Product, {
+    foreignKey: 'user_id'
+});
 
 Product.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-User.hasMany(Product, {
-    foreignKey: 'user_id'
+Category.hasMany(Product, {
+    foreignKey: 'category_id'
 });
 
-Product.belongsTo(ShippingProvider, {
-    foreignKey: 'shipping_id'
+Product.belongsTo(Category, {
+    foreignKey: 'category_id'
 });
 
 ShippingProvider.hasMany(Product, {
     foreignKey: 'shipping_id'
 })
 
-Product.belongsTo(Category, {
-    foreignKey: 'category_id'
-});
-
-Category.hasMany(Product, {
-    foreignKey: 'category_id'
+Product.belongsTo(ShippingProvider, {
+    foreignKey: 'shipping_id'
 });
 
 Product.belongsToMany(Tag, {
