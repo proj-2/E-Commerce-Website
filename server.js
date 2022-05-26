@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 // ensures that the CSS and JS files in public are accessisble to use
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(require("./controllers/"));
+app.use(require("./controllers/"));
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Listening on ${PORT}`))
