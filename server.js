@@ -1,4 +1,3 @@
-// import applications
 const path = require("path");
 const express = require("express");
 const session = require('express-session');
@@ -21,21 +20,13 @@ const sess = {
 };
 app.use(session(sess));
 const helpers = require("./utils/helpers");
-// makes all helper functions accessible to handlebars
 const hbs = exphbs.create({ helpers })
-
-// makes handlebars the template being used by the app
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
-// express middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// ensures that the CSS and JS files in public are accessisble to use
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(require("./controllers/"));
-
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Listening on ${PORT}`))
 });
