@@ -1,34 +1,32 @@
 <form>
-    <div>
-      <h2>New Search:</h2>
+  <div>
+    <h2>New Search:</h2>
     <label for="hardware-start-up">HARDWARE:</label>
     <input type="text" id="hardware-start-up" />
-  </div>
+  </div>  
   <div>
     <label for="software-start-up">SOFTWARE:</label>
     <input type="text" id="software-start-up" />
   </div>
-    <div>
+  <div>
     <button type="submit">Submit</button>
   </div>
-  <div>
-      <h2>Search Results</h2>
-  </div>
-  <div>
-      <button class="cart">
-          <span>Add to Cart</span>
-          <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-      </button> 
-  </div>
-  <div>
-      <div>
-  <h2>Sign up!</h2>
-  <button type="submit">Sign up</button>
-  </div>
-  <div>
-  </div>
-
-
-
 </form>
+<section>
+  <div>
+    <div>
+      <h2>Search Results:</h2>
+    </div>
+    <div>
+      {{!-- each product info comes here --}}
+      {{>product}}
+    </div>
+  </div>
+  <button class="cart">
+    <span>Add to Cart</span>
+    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+  </button> 
+  <div>
+</section>
+
 {{!-- <script src="/javascript/login.js"></script>
