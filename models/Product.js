@@ -21,11 +21,17 @@ Product.init(
         },
         price: {
             type: DataTypes.DECIMAL(6, 2),
-            allowNull: false
+            allowNull: false,
+            validate: {
+                isNumeric: true
+            }
         },
         SKU: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                isNumeric: true
+            }
         },
         origin: {
             type: DataTypes.STRING,
@@ -51,6 +57,50 @@ Product.init(
                 model: 'shipping_provider',
                 key: 'id'
             }
+        },
+        stock: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: 5,
+            validate: {
+                isNumeric: true
+            }
+        },
+        length: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                isNumeric: true
+            }
+        },
+        width: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                isNumeric: true
+            }
+        },
+        height: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                isNumeric: true
+            }
+        },
+        dimension_units: {
+            type: DataTypes.STRING(2),
+            allowNull: true
+        },
+        weight: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                isNumeric: true
+            }
+        },
+        weight_units: {
+            type: DataTypes.STRING(2),
+            allowNull: true
         }
     },
     {

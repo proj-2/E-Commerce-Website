@@ -9,6 +9,12 @@ const tagData = [
     },
     {
         name: 'framework'
+    },
+    {
+        name: 'black'
+    },
+    {
+        name: 'monitor'
     }
 ]
 

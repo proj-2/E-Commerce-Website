@@ -9,7 +9,14 @@ const productData = [
         origin: 'Brampton',
         category_id: 1,
         user_id: 1,
-        shipping_id: 1
+        shipping_id: 1,
+        stock: 10,
+        length: 441,
+        width: 139,
+        height: 18,
+        dimension_units: "mm",
+        weight: 498,
+        weight_units: "g",
     },
     {
         name: 'Axios',
