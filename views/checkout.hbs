@@ -1,0 +1,32 @@
+<form class="checkout-form">
+  <div>
+    <h2>Credit Card Information:</h2>
+    <input type="number" id="cc-number-checkout" name="cc-number-checkout" placeholder="CREDIT CARD NUMBER" />
+    <input type="month" id="exp-checkout" name="exp-checkout" placeholder="EXP" />
+    <input type="password" id="cvc-checkout" name="cvc-checkout" placeholder="CVC" />
+  </div>
+  <div>
+    <h2>Shipping Address:</h2>
+    <input type="text" id="ship-street-checkout" name="ship-street-checkout" placeholder="STREET ADDRESS" />
+    <input type="text" id="ship-unit-checkout" name="ship-unit-checkout" placeholder="UNIT/APT" />
+    <input type="text" id="ship-postcode-checkout" name="ship-postcode-checkout" placeholder="POSTAL CODE" />
+    <input type="text" id="ship-province-checkout" name="ship-province-checkout" placeholder="PROVINCE/STATE" />
+    <input type="text" id="ship-country-checkout" name="ship-country-checkout" placeholder="COUNTRY" />
+  </div>
+  <div>
+    <h2>Billing Address:</h2>
+    <label for="confirm-bill-address">Same as shipping address?</label>
+    <input type="checkbox" id="confirm-bill-address" name="confirm-bill-address" />
+    <input type="text" id="bill-street-checkout" name="bill-street-checkout" placeholder="STREET ADDRESS" />
+    <input type="text" id="bill-unit-checkout" name="bill-unit-checkout" placeholder="UNIT/APT" />
+    <input type="text" id="bill-postcode-checkout" name="bill-postcode-checkout" placeholder="POSTAL CODE" />
+    <input type="text" id="bill-province-checkout" name="bill-province-checkout" placeholder="PROVINCE/STATE" />
+    <input type="text" id="bill-country-checkout" name="bill-country-checkout" placeholder="COUNTRY" />
+  </div>
+  
+  <div>
+    <button type="submit" id="checkout-btn">Checkout</button>
+  </div>
+</form>
+
+{{!-- <script src="/javascript/login.js"></script> --}}
