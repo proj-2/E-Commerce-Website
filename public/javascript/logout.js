@@ -1,4 +1,7 @@
-async function logout() {
+async function logoutFormHandler(event) {
+    event.preventDefault();
+
+
     const logout = await fetch("/api/user/logout", {
         method: 'post',
         headers: { 'Content-Type': 'application/json' }
@@ -11,4 +14,4 @@ async function logout() {
     }
 }
 
-document.querySelector("#logout").addEventListener("click", logout);
+document.querySelector('.logout-form').addEventListener('submit', logoutFormHandler);

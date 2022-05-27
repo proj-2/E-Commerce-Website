@@ -1,4 +1,4 @@
-async function loginFormHandler(event) {
+async function checkoutFormHandler(event) {
     event.preventDefault();
   
     const ccNumberCheckout = document.querySelector('#cc-number-checkout').value.trim();
@@ -28,11 +28,11 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/search');
+        document.location.replace('/search'); //fix this
       } else {
         alert(response.statusText);
       }
     }
   }
   
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  document.querySelector('.checkout-form').addEventListener('submit', checkoutFormHandler);

@@ -1,4 +1,4 @@
-async function loginFormHandler(event) {
+async function startUpFormHandler(event) {
     event.preventDefault();
   
     const hardwareStartUp = document.querySelector('#hardware-start-up').value.trim();
@@ -66,4 +66,4 @@ async function loginFormHandler(event) {
 //sign up buttom
 //want to sell something button
 
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  document.querySelector('.start-up-form').addEventListener('submit', startUpFormHandler);

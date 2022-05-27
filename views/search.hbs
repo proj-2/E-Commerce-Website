@@ -19,7 +19,9 @@
     </div>
     <div>
       {{!-- each product info comes here --}}
+      {{#each product_result}}
       {{>product}}
+      {{/each}}
     </div>
   </div>
   <button class="cart">
@@ -29,4 +31,4 @@
   <div>
 </section>
 
-{{!-- <script src="/javascript/login.js"></script>
+{{!-- <script src="/javascript/login.js"></script> --}}
