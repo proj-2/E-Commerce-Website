@@ -116,16 +116,31 @@ router.put("/:id", (req, res) => {
             id: req.params.id
         }
     })
-        .then(productData => {
-            if (!productData) {
-                res.status(404).json({ message: 'No product found with this ID' })
-                return
+        .then(product => {
+            if (req.body.tag_id) {
+                ProductTag.destroy({
+                    where: {
+                        product_id: req.params.id
+                    }
+                })
+                const productTagData = req.body.tag_id.map((tag_id) => {
+                    return {
+                        product_id: req.params.id,
+                        tag_id
+                    }
+                })
+                ProductTag.bulkCreate(productTagData)
+                res.status(200).json(product)
+
+            } else if (!req.body.tag_id) {
+                res.status(200).json(product)
             }
         })
-    return ProductTag.findAll({ where: { product_id: req.params.id } })
-        .then(productTagData => {
-
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
         })
+
 
 });
 
