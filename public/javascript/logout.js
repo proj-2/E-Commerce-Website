@@ -1,0 +1,14 @@
+async function logout() {
+    const logout = await fetch("/api/user/logout", {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' }
+    })
+
+    if (logout.ok) {
+        document.location.replace('/')
+    } else {
+        alert("Please try to logout again")
+    }
+}
+
+document.querySelector("#logout").addEventListener("click", logout);
