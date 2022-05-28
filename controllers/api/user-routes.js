@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
         last_name: req.body.last_name,
         email: req.body.email,
         password: req.body.password,
-        currency: req.body.password
+        currency: req.body.currency
     })
         .then(userData => {
             req.session.save(() => {

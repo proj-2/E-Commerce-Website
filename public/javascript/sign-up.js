@@ -5,8 +5,9 @@ async function signUpFormHandler(event) {
   const last_name = document.querySelector('#last-name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-  const repassword = document.querySelector('#re-password-signup').value.trim();
-  const currency = document.querySelector('#currency-signup').value.trim();
+  const repassword = document.querySelector('#re-enter-password-signup').value.trim();
+  const currency = document.querySelector('#preferred-currency-signup').value.trim();
+  console.log(currency)
 
 
 
@@ -20,12 +21,7 @@ async function signUpFormHandler(event) {
       const response = await fetch('/api/user', {
         method: 'post',
         body: JSON.stringify({
-          firstSignup,
-          lastSignup,
-          emailSignup,
-          passwordSignUp,
-          rePasswordSignUp,
-          currencySignup
+          first_name, last_name, email, password, currency
         }),
         headers: { 'Content-Type': 'application/json' }
       });
@@ -39,4 +35,4 @@ async function signUpFormHandler(event) {
   }
 }
 
-document.querySelector('.sign-up-form').addEventListener('submit', signUpFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signUpFormHandler);
