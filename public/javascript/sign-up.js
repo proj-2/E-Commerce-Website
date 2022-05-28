@@ -15,7 +15,7 @@ async function signUpFormHandler(event) {
     alert("Please enter all field from the signup form to create an account")
   } else {
     if (password !== repassword) {
-      alert("The passwords enter do not match!")
+      alert("The passwords entered do not match!")
       return
     } else {
       const response = await fetch('/api/user', {
