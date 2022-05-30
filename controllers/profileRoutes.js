@@ -40,4 +40,18 @@ router.get('/', validation, (req, res) => {
         })
 })
 
+router.get("/listItem", validation, (req, res) => {
+    Tag.findAll({
+        attributes: ['id', 'name']
+    })
+        .then(tagData => {
+            const tags = tagData.map(tag => tag.get({ plain: true }))
+            res.render("list-item", { tags, loggedIn: true })
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+
 module.exports = router
