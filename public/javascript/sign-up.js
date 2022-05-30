@@ -7,8 +7,6 @@ async function signUpFormHandler(event) {
   const password = document.querySelector('#password-signup').value.trim();
   const repassword = document.querySelector('#re-enter-password-signup').value.trim();
   const currency = document.querySelector('#preferred-currency-signup').value.trim();
-  console.log(currency)
-
 
 
   if (!first_name || !last_name || !email || !password || !repassword || !currency) {

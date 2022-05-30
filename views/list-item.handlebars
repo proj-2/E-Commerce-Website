@@ -2,34 +2,34 @@
 
 <form id="listItemForm">
     <div>
-        <label for="product-name">Product Name:</label>
+        <label for="product-name">Product Name (required):</label>
         <input type="text" id="product-name">
     </div>
     <div>
-        <label for="product-description">Description:</label>
+        <label for="product-description">Description (required):</label>
         <textarea type="text" id="product-description"></textarea>
     </div>
     <div>
-        <label for="product-price">Price:</label>
+        <label for="product-price">Price (required):</label>
         <input type="number" id="product-price"></input>
     </div>
     <div>
-        <label for="product-SKU">SKU:</label>
+        <label for="product-SKU">SKU (required):</label>
         <input type="number" id="product-SKU"></input>
     </div>
     <div>
-        <label for="product-origin">Shipping From:</label>
+        <label for="product-origin">Shipping From (required):</label>
         <input type="text" id="product-origin"></input>
     </div>
     <div>
-        <label for="product-category">Product Category:</label>
+        <label for="product-category">Product Category (required):</label>
         <select id="product-category" name="product-category">
             <option value="1">Hardware</option>
             <option value="2">Software</option>
         </select>
     </div>
     <div>
-        <label for="product-shipping">Shipping Provider:</label>
+        <label for="product-shipping">Shipping Provider (required):</label>
         <select id="product-shipping" name="product-shipping">
             <option value="1">UPS</option>
             <option value="2">FEDEX</option>
@@ -37,7 +37,7 @@
         </select>
     </div>
     <div>
-        <label for="product-stock">Stock:</label>
+        <label for="product-stock">Stock (required):</label>
         <input type="number" id="product-stock"></input>
     </div>
     <div>
@@ -54,7 +54,7 @@
     </div>
     <div>
         <label for="product-dimension-units">Dimension Units (optional):</label>
-        <input type="number" id="product-dimension-units"></input>
+        <input type="text" id="product-dimension-units"></input>
     </div>
     <div>
         <label for="product-weight">Weight (optional):</label>
@@ -62,15 +62,19 @@
     </div>
     <div>
         <label for="product-weight-units">Weight Units (optional):</label>
-        <input type="number" id="product-weight-units"></input>
+        <input type="text" id="product-weight-units"></input>
     </div>
     <div>
+        <label>Tags (required):</label>
         {{#each tags}}
-        <input type="checkbox" name="{{name}}" id="{{name}}" value="{{id}}">
-        <label for="{{name}}">{{name}}</label>
+        <input type="checkbox" name="product-tag" id="product-tag" value="{{id}}">
+        <label for="product-tag">{{name}}</label>
         {{/each}}
     </div>
     <div>
-        <button id="listItemBtn" type="button">List Item</button>
+        <button id="listItemBtn" type="submit">List Item</button>
     </div>
 </form>
+
+
+<script src="/javascript/listing-form.js"></script>
