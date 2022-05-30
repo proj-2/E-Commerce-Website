@@ -15,7 +15,44 @@ const tagData = [
     },
     {
         name: 'monitor'
-    }
+    },
+    {
+        name: 'laptop'
+    },
+    {
+        name: 'computer'
+    },
+    {
+        name: 'hard drive'
+    },
+    {
+        name: 'mouse'
+    },
+    {
+        name: 'white'
+    },
+    {
+        name: 'middleware'
+    },
+    {
+        name: 'application software'
+    },
+    {
+        name: 'system software'
+    },
+    {
+        name: 'utility'
+    },
+    {
+        name: 'library'
+    },
+    {
+        name: 'open source'
+    },
+    {
+        name: 'shareware'
+    },
+
 ]
 
 const seedTags = () => Tag.bulkCreate(tagData)
