@@ -1,6 +1,21 @@
 <article>
-    <img src="{{image}}" alt="{{description}}" />
     <h3>{{name}}</h3>
-    <p>Description: <br/>{{description}}</p>
-    <p>Price: {{price}}</p>
+    <p>{{description}}</p>
+    <p>Listed By : {{user.first_name}} {{user.last_name}}</p>
+    <p>{{price}} {{user.currency}}</p>
+    <p>{{SKU}} Sorting ID</p>
+    <p>Shipping From: {{origin}}</p>
+    <p>{{stock}} remaining</p>
+    <p>{{length}} {{dimension_units}} X {{width}} {{dimension_units}} X {{height}} {{dimension_units}}</p>
+    <p>{{weight}} {{weight_units}}</p>
+    <div>
+        <p>Category</p>
+        <a href="/category/{{category.id}}">{{category.category_name}}</a>
+    </div>
+    <div>
+        <p>Tags</p>
+        {{#each tags}}
+        <a href="/tag/{{id}}">{{name}}</a>
+        {{/each}}
+    </div>
 </article>
