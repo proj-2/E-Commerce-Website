@@ -4,6 +4,7 @@ const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("
 const validation = require("../utils/validation")
 
 router.get('/', validation, (req, res) => {
+    console.log(req.session)
     Product.findAll({
         where: {
             user_id: req.session.user_id

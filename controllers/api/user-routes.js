@@ -118,7 +118,7 @@ router.post("/login", (req, res) => {
                 res.status(400).json({ message: 'Incorrect password!' });
                 return;
             }
-
+            console.log(userData)
             req.session.save(() => {
                 req.session.user_id = userData.id;
                 req.session.email = userData.email
