@@ -5,9 +5,18 @@
       <option value="1">Hardware</option>
       <option value="2">Software</option>
     </select>
-  </div>
-  <div>
     <button id="searchFormBtn" type="submit">Search</button>
+  </div>
+</form>
+<form id="tagSearch">
+  <div>
+    <label>Select A Tag to Search From:</label>
+    <select name="search-tag" id="search-tag">
+      {{#each tags}}
+      <option value="{{id}}">{{name}}</option>
+      {{/each}}
+    </select>
+    <button id="searchTagBtn" type="submit">Search</button>
   </div>
 </form>
 

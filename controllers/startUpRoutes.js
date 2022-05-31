@@ -10,7 +10,14 @@ router.get("/signup", (req, res) => {
 })
 
 router.get("/search", (req, res) => {
-    res.render('search', { loggedIn: req.session.loggedIn })
+    Tag.findAll({
+        attributes: ['id', 'name']
+    })
+        .then(tagData => {
+            const tags = tagData.map(tag => tag.get({ plain: true }))
+            res.render('search', { loggedIn: req.session.loggedIn, tags })
+
+        })
 })
 
 router.get("/search/category/:num", (req, res) => {
@@ -41,6 +48,52 @@ router.get("/search/category/:num", (req, res) => {
         ]
     })
         .then(productData => {
+            const products = productData.map(product => product.get({ plain: true }))
+            res.render("search-results", { products, loggedIn: true })
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+
+router.get("/search/tag/:num", (req, res) => {
+    Tag.findOne({
+        attributes: ['id', 'name'],
+        include: [
+            {
+                model: Product,
+                attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id', 'shipping_id', 'stock', 'length', 'width', 'height', 'dimension_units', 'weight', 'weight_units'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['id', 'first_name', 'last_name']
+                    },
+                    {
+                        model: Category,
+                        attributes: ['id', 'category_name']
+                    },
+                    {
+                        model: ShippingProvider,
+                        attributes: ['id', 'shipping_name']
+                    },
+                    {
+                        model: Tag,
+                        attributes: ['id', 'name'],
+                        through: ProductTag,
+                        as: 'tags'
+                    }
+                ],
+                through: ProductTag,
+                as: 'products'
+            }
+        ],
+        where: {
+            id: req.params.num
+        }
+    })
+        .then(tagData => {
+            const productData = tagData.dataValues.products
             const products = productData.map(product => product.get({ plain: true }))
             res.render("search-results", { products, loggedIn: true })
         })
