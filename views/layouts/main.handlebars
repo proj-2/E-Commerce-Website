@@ -14,7 +14,7 @@
 <body class="bg-sky-400">
   {{!-- <div class="container"> --}}
   <header class="px-4 py-2 bg-sky-900 text-sky-200 flex justify-between">
-    <a href="/" class="w-14">
+    <a href="/" class="w-16">
       <image src="/images/dEv-Commerce_logo.png" alt="dEv Commerce application's logo"></image>
     </a>
     {{!-- <h1>
@@ -27,25 +27,25 @@
           <option value="1">Hardware</option>
           <option value="2">Software</option>
         </select>
-        <button id="searchFormBtn" type="submit">Search</button>
+        <button id="searchFormBtn" type="submit" class="ml-1 px-2 bg-stone-400 text-stone-700 rounded hover:bg-sky-200 hover:text-sky-900">Search</button>
       </form>
-      <form id="tagSearch">
+      <form id="tagSearch" class="mt-1">
         <label>Select A Tag to Search From:</label>
         <select name="search-tag" id="search-tag" class="text-sky-900 w-28">
           {{#each tags}}
           <option value="{{id}}">{{name}}</option>
           {{/each}}
         </select>
-        <button id="searchTagBtn" type="submit">Search</button>
+        <button id="searchTagBtn" type="submit" class="ml-1 px-2 bg-stone-400 text-stone-700 rounded hover:bg-sky-200 hover:text-sky-900">Search</button>
       </form>
     </div>
 
-    <nav>
-      <a href="/profile" class="mx-3 align-middle">My Profile</a>
+    <nav class="py-3">
+      <a href="/profile" class="mx-3">My Profile</a>
       {{#if loggedIn}}
-      <button id="logoutBtn" class="mx-3 align-middle">Logout</button>
+      <button id="logoutBtn" class="mx-3">Logout</button>
       {{else}}
-      <a href="/" class="mx-3 align-middle">Login</a>
+      <a href="/" class="mx-3">Login</a>
       {{/if}}
     </nav>
   </header>
