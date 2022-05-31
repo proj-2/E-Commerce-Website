@@ -7,27 +7,27 @@
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>dEv-Commerce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-  <div class="container">
+<body class="bg-sky-400">
+  {{!-- <div class="container"> --}}
+  <div>
     <header>
-      <nav>
-        <h1>
-          <a href="/search">dEv Commerce</a>
-        </h1>
-        <nav>
-          <a href="/profile">My Profile</a>
-          {{#if loggedIn}}
-          <button id="logoutBtn">Logout</button>
-          {{else}}
-          <a href="/">Login</a>
-          {{/if}}
-        </nav>
+      <nav class="text-right p-2 bg-sky-900 text-sky-200">
+        <a href="/profile" class="mx-3">My Profile</a>
+        {{#if loggedIn}}
+        <button id="logoutBtn" class="mx-3">Logout</button>
+        {{else}}
+        <a href="/" class="mx-3">Login</a>
+        {{/if}}
+      </nav>
+      <h1 class="mt-20 text-5xl text-center text-sky-900">
+        <a href="/search">dEv Commerce</a>
+      </h1>
     </header>
-    <main>
+    <main class="p-10">
       {{{ body }}}
     </main>
     <footer>
