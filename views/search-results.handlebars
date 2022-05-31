@@ -1,21 +1,14 @@
+{{#if products.length}}
+<h3>My Existing Listings</h3>
+<ul class="existingListings">
+  {{#each products as |product|}}
+  <li>
+    {{> product product}}
+    <a class="viewProductBtn" href="/profile/product/{{product.id}}">View Product</a>
+  </li>
+  {{/each}}
+</ul>
+{{/if}}
 
-<section>
-  <div>
-    <div>
-      <h2>Items To List For Sale:</h2>
-    </div>
-    <div>
-      {{!-- each product info comes here --}}
-      {{#each search_result}}
-      {{>product}}
-      {{/each}}
-    </div>
-  </div>
-  <button class="cart">
-    <span>Add to Cart</span>
-    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-  </button> 
-  <div>
-</section>
-
-{{!-- <script src="/javascript/login.js"></script> --}}
+{{!--
+<script src="/javascript/login.js"></script> --}}
