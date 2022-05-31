@@ -2,30 +2,23 @@ const router = require("express").Router();
 const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("../models/");
 
 router.get("/", (req, res) => {
-    Tag.findAll({
-        attributes: ['id', 'name']
-    })
-        .then(tagData => {
-            const tags = tagData.map(tag => tag.get({ plain: true }))
-            res.render('login', { loggedIn: req.session.loggedIn, tags })
-        });
-    // res.render('login', { loggedIn: req.session.loggedIn })
+    res.render('login', { loggedIn: req.session.loggedIn })
 });
 
 router.get("/signup", (req, res) => {
     res.render('sign-up')
 })
 
-// router.get("/search", (req, res) => {
-//     Tag.findAll({
-//         attributes: ['id', 'name']
-//     })
-//         .then(tagData => {
-//             const tags = tagData.map(tag => tag.get({ plain: true }))
-//             res.render('search', { loggedIn: req.session.loggedIn, tags })
+router.get("/search", (req, res) => {
+    Tag.findAll({
+        attributes: ['id', 'name']
+    })
+        .then(tagData => {
+            const tags = tagData.map(tag => tag.get({ plain: true }))
+            res.render('search', { loggedIn: req.session.loggedIn, tags })
 
-//         })
-// })
+        })
+})
 
 router.get("/search/category/:num", (req, res) => {
     Product.findAll({
@@ -56,7 +49,7 @@ router.get("/search/category/:num", (req, res) => {
     })
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search", { products, loggedIn: true })
+            res.render("search-results", { products, loggedIn: true })
         })
         .catch(err => {
             console.log(err)
@@ -102,7 +95,7 @@ router.get("/search/tag/:num", (req, res) => {
         .then(tagData => {
             const productData = tagData.dataValues.products
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search", { products, loggedIn: true })
+            res.render("search-results", { products, loggedIn: true })
         })
         .catch(err => {
             console.log(err)

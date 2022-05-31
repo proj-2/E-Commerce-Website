@@ -25,7 +25,7 @@ async function signUpFormHandler(event) {
       });
 
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/search');
       } else {
         alert(response.statusText);
       }
