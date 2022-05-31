@@ -80,7 +80,7 @@ router.get("/search/tag/:num", (req, res) => {
                 include: [
                     {
                         model: User,
-                        attributes: ['id', 'first_name', 'last_name']
+                        attributes: ['id', 'first_name', 'last_name', 'currency']
                     },
                     {
                         model: Category,
@@ -107,6 +107,43 @@ router.get("/search/tag/:num", (req, res) => {
     })
         .then(tagData => {
             const productData = tagData.dataValues.products
+            const products = productData.map(product => product.get({ plain: true }))
+            res.render("search-results", { products, loggedIn: true })
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+
+router.get("/search/product/:num", (req, res) => {
+    Product.findAll({
+        where: {
+            id: req.params.num
+        },
+        attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id', 'shipping_id', 'stock', 'length', 'width', 'height', 'dimension_units', 'weight', 'weight_units'],
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'first_name', 'last_name', 'currency']
+            },
+            {
+                model: Category,
+                attributes: ['id', 'category_name']
+            },
+            {
+                model: ShippingProvider,
+                attributes: ['id', 'shipping_name']
+            },
+            {
+                model: Tag,
+                attributes: ['id', 'name'],
+                through: ProductTag,
+                as: 'tags'
+            }
+        ]
+    })
+        .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
             res.render("search-results", { products, loggedIn: true })
         })

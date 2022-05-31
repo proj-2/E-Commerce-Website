@@ -6,14 +6,18 @@
     <p>{{SKU}} Sorting ID</p>
     <p>Shipping From: {{origin}}</p>
     <p>{{stock}} remaining</p>
+    {{#if length}}
+    Product Dimensions: L x W x H
     <p>{{length}} {{dimension_units}} X {{width}} {{dimension_units}} X {{height}} {{dimension_units}}</p>
+    Product Weight:
     <p>{{weight}} {{weight_units}}</p>
+    {{/if}}
     <div>
-        <p>Category</p>
+        <p>Category:</p>
         <a href="/search/category/{{category.id}}">{{category.category_name}}</a>
     </div>
     <div>
-        <p>Tags</p>
+        <p>Tags:</p>
         {{#each tags}}
         <a href="/search/tag/{{id}}">{{name}}</a>
         {{/each}}
