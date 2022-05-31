@@ -2,23 +2,30 @@ const router = require("express").Router();
 const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("../models/");
 
 router.get("/", (req, res) => {
-    res.render('login', { loggedIn: req.session.loggedIn })
+    Tag.findAll({
+        attributes: ['id', 'name']
+    })
+        .then(tagData => {
+            const tags = tagData.map(tag => tag.get({ plain: true }))
+            res.render('login', { loggedIn: req.session.loggedIn, tags })
+        });
+    // res.render('login', { loggedIn: req.session.loggedIn })
 });
 
 router.get("/signup", (req, res) => {
     res.render('sign-up')
 })
 
-router.get("/search", (req, res) => {
-    Tag.findAll({
-        attributes: ['id', 'name']
-    })
-        .then(tagData => {
-            const tags = tagData.map(tag => tag.get({ plain: true }))
-            res.render('search', { loggedIn: req.session.loggedIn, tags })
+// router.get("/search", (req, res) => {
+//     Tag.findAll({
+//         attributes: ['id', 'name']
+//     })
+//         .then(tagData => {
+//             const tags = tagData.map(tag => tag.get({ plain: true }))
+//             res.render('search', { loggedIn: req.session.loggedIn, tags })
 
-        })
-})
+//         })
+// })
 
 router.get("/search/category/:num", (req, res) => {
     Product.findAll({
