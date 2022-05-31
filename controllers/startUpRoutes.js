@@ -56,7 +56,7 @@ router.get("/search/category/:num", (req, res) => {
     })
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: true })
+            res.render("search", { products, loggedIn: true })
         })
         .catch(err => {
             console.log(err)
@@ -102,7 +102,7 @@ router.get("/search/tag/:num", (req, res) => {
         .then(tagData => {
             const productData = tagData.dataValues.products
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: true })
+            res.render("search", { products, loggedIn: true })
         })
         .catch(err => {
             console.log(err)

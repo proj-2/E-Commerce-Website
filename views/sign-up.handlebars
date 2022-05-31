@@ -1,31 +1,37 @@
-<form class="signup-form">
-  <div>
-    <label for="first-name-signup">first-name:</label>
-    <input type="text" id="first-name-signup" />
-  </div>
-  <div>
-    <label for="last-name-signup">last-name:</label>
-    <input type="text" id="last-name-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <label for="re-password-signup">re-enter-password:</label>
-    <input type="password" id="re-enter-password-signup" />
-  </div>
-  <div>
-    <label for="currency-signup">preferred-currency:</label>
-    <input type="password" id="preferred-currency-signup" />
-  </div>
-  <div>
-    <button type="submit">Submit</button>
-  </div>
-</form>
+<section class="flex justify-center my-28">
+  <form class="signup-form mb-5 mx-7 w-12/12">
+    <h2 class="text-3xl">Sign Up</h2>
+    <div class="my-5 text-lg">
+      <div class="my-3">
+        <label for="first-name-signup">First Name: </label>
+        <input type="text" id="first-name-signup" />
+      </div>
+      <div class="my-3">
+        <label for="last-name-signup">Last Name: </label>
+        <input type="text" id="last-name-signup" /> 
+      </div>
+      <div class="my-3">
+        <label for="email-signup">Email: </label>
+        <input type="text" id="email-signup" />
+      </div>
+      <div class="my-3">
+        <label for="password-signup">Password: </label>
+        <input type="password" id="password-signup" />
+      </div>
+      <div class="my-3">
+        <label for="re-password-signup">Re-enter Password: </label>
+        <input type="password" id="re-enter-password-signup" />
+      </div>
+      <div class="my-3">
+        <label for="currency-signup">Preferred Currency: </label>
+        <select name="search-category" id="preferred-currency-signup">
+          <option>CAD</option>
+          <option>USD</option>
+        </select>
+      </div>
+      <button type="submit" class="mt-3 px-3 py-1 bg-stone-400 text-stone-700 rounded hover:bg-sky-900 hover:text-sky-200">Sign up</button>
+    </div>
+  </form>
+</section>
 
 <script src="/javascript/sign-up.js"></script>
