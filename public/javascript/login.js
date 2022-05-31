@@ -25,7 +25,7 @@ async function loginFormHandler(event) {
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-document.querySelector('#signupSelect').addEventListener("click", () => {
-  document.location.replace("/signup")
-})
+// document.querySelector('#signupSelect').addEventListener("click", () => {
+//   document.location.replace("/signup")
+// })
 

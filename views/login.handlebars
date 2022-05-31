@@ -1,22 +1,30 @@
-<form class="login-form">
-  <div>
-    <h2>Login:</h2>
-    <label for="email-login">Email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">Password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">Login</button>
-  </div>
-</form>
-<div>
-  <h2>Not a Member? Sign up!</h2>
-  <button id="signupSelect" type="button">Sign up</button>
-</div>
+<h1 class="text-5xl text-center text-sky-900">
+  <a href="/search">dEv Commerce</a>
+</h1>
 
+<section class="flex justify-center mt-3">
+  <form class="login-form mt-8 mx-7 w-12/12">
+    <h2 class="text-3xl">Login</h2>
+    <div class="p-2 text-lg">
+      <div class="m-1 flex flex-col">
+        <label for="email-login">Email:</label>
+        <input type="text" id="email-login" name="email-login" />
+      </div>
+      <div class="m-1 flex flex-col">
+        <label for="password-login">Password:</label>
+        <input type="password" id="password-login" />
+      </div>
+      <div class="m-1">
+        <button type="submit" class="mt-3 px-3 py-1 bg-stone-400 text-stone-700 rounded hover:bg-sky-900 hover:text-sky-200">Login</button>
+      </div>
+    </div>
+  </form>
 
+  <div class="mt-8 pl-5 w-12/12">
+    <h2 class="text-2xl mb-3">Not a Member? Sign up!</h2>
+    {{!-- <button id="signupSelect" type="button" >Sign up</button> --}}
+    <a href="/signup" class="underline text-blue-800 text-lg">Sign up</a>
+  </div>
+</section>
 
 <script src="/javascript/login.js"></script>
