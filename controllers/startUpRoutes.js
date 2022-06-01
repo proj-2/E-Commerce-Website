@@ -144,25 +144,14 @@ router.get("/search/product/:num", (req, res) => {
         ]
     })
         .then(productData => {
-            const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: req.session.loggedIn })
+            const intialProduct = productData.map(product => product.get({ plain: true }))
+            const products = intialProduct.map(product => ({ ...product, loggedIn: req.session.loggedIn }))
+            res.render("single-product", { products: products, loggedIn: req.session.loggedIn })
         })
         .catch(err => {
             console.log(err)
             res.status(500).json(err)
         })
-})
-
-router.get("/order/product/:id", validation, (req, res) => {
-    Order.create({
-        product_id: req.params.id,
-        user_id: req.session.user_id
-    })
-        .then(orderData => {
-            console.log(orderData.dataValues)
-
-
-        })
-})
+});
 
 module.exports = router;

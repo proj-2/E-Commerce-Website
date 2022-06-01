@@ -1,0 +1,17 @@
+{{#if products.length}}
+<h3>My Existing Listings</h3>
+<ul class="existingListings">
+    {{#each products as |product|}}
+    <li>
+        {{> product product}}
+        <a class="viewProductBtn" href="/search/product/{{product.id}}">View Product</a>
+        {{#if loggedIn}}
+        <button id="orderProductBtn">Order Product</button>
+        {{/if}}
+    </li>
+    {{/each}}
+</ul>
+{{/if}}
+{{#if loggedIn}}
+<script src="/javascript/order.js"></script>
+{{/if}}
