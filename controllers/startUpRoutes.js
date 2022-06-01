@@ -158,4 +158,49 @@ router.get("/search/product/:num", (req, res) => {
         })
 });
 
+router.get("/order", validation, (req, res) => {
+    User.findAll({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: ['id', 'email'],
+        include: {
+            model: Product,
+            attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id', 'shipping_id', 'stock', 'length', 'width', 'height', 'dimension_units', 'weight', 'weight_units'],
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'first_name', 'last_name', 'currency']
+                },
+                {
+                    model: Category,
+                    attributes: ['id', 'category_name']
+                },
+                {
+                    model: ShippingProvider,
+                    attributes: ['id', 'shipping_name']
+                },
+                {
+                    model: Tag,
+                    attributes: ['id', 'name'],
+                    through: ProductTag,
+                    as: 'tags'
+                }
+            ],
+            through: Order,
+            as: 'product_order'
+        }
+    })
+        .then(orderData => {
+            const initialOrderData = orderData.map(order => order.get({ plain: true }))
+            const orders = initialOrderData[0].product_order
+            console.log(orders)
+            res.render('order', { loggedIn: req.session.loggedIn, orders })
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+
 module.exports = router;

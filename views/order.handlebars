@@ -1,1 +1,8 @@
-<h1>ORDERSSSSSS</h1>
+<h2>My Orders</h2>
+<ul class="myOrders">
+    {{#each orders as |order|}}
+    <li>
+        {{>order-partial order}}
+    </li>
+    {{/each}}
+</ul>
