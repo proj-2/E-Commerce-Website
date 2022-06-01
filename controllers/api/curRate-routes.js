@@ -15,7 +15,8 @@ router.post('/', async (req, res) => {
         .then(res => res.json())
         .then(res => {
             const getRate = `res.rates.${req.body.prefer_cur}`;
-            req.session.rate = eval(getRate);
+            req.session.curRate = eval(getRate);
+            req.session.currency = req.body.prefer_cur;
             
             return 'success';
             

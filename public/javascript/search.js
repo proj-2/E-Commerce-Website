@@ -15,8 +15,7 @@ async function searchFormHandler(event) {
   });
 
   if (response.ok) {
-    window.location.replace(`search/category/${category_id}`)
-    console.log(response);
+    document.location.replace(`search/category/${category_id}`)
   } else {
     alert(response.statusText);
   }
@@ -27,7 +26,19 @@ async function searchTagFrom(event) {
   const tag_id = document.querySelector("#search-tag").value.trim();
   console.log(tag_id)
 
-  document.location.replace(`search/tag/${tag_id}`)
+  const response = await fetch('/api/curRate', {
+    method: 'POST',
+    body: JSON.stringify({
+      prefer_cur
+    }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    document.location.replace(`search/tag/${tag_id}`)
+  } else {
+    alert(response.statusText);
+  }
 }
 
 

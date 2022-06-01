@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const session = require("express-session");
 const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("../models/");
 
 
@@ -63,7 +64,12 @@ router.get("/search/category/:num", (req, res) => {
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
             
-            res.render("search-results", { products, loggedIn: true })
+            console.log(session);
+
+            res.render("search-results", { 
+                products, 
+                loggedIn: true
+            });
         })
         .catch(err => {
             console.log(err)
