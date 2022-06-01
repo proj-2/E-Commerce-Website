@@ -3,7 +3,8 @@ const Product = require("./Product");
 const Category = require("./Category");
 const Tag = require("./Tag");
 const ShippingProvider = require("./ShippingProvider");
-const ProductTag = require("./ProductTag")
+const ProductTag = require("./ProductTag");
+const Order = require("./Order");
 
 User.hasMany(Product, {
     foreignKey: 'user_id'
@@ -41,6 +42,18 @@ Tag.belongsToMany(Product, {
     foreignKey: 'tag_id'
 })
 
+Product.belongsToMany(User, {
+    through: Order,
+    as: 'user_order',
+    foreignKey: 'product_id'
+});
+
+User.belongsToMany(Product, {
+    through: Order,
+    as: 'product_order',
+    foreignKey: 'user_id'
+})
+
 module.exports = {
-    User, Product, Category, Tag, ShippingProvider, ProductTag
+    User, Product, Category, Tag, ShippingProvider, ProductTag, Order
 }
