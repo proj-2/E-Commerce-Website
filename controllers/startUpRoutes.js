@@ -62,6 +62,7 @@ router.get("/search/category/:num", (req, res) => {
     })
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
+            
             res.render("search-results", { products, loggedIn: true })
         })
         .catch(err => {
