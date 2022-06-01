@@ -17,29 +17,10 @@
     <a href="/" class="w-16">
       <image src="/images/dEv-Commerce_logo.png" alt="dEv Commerce application's logo"></image>
     </a>
-    {{!-- <div>
-      <form id="searchForm">
-        <label for="search-category">Select a Category to Search from:</label>
-        <select name="search-category" id="search-category" class="text-sky-900 w-28">
-          <option value="1">Hardware</option>
-          <option value="2">Software</option>
-        </select>
-        <button id="searchFormBtn" type="submit" class="ml-1 px-2 bg-stone-400 text-stone-700 rounded hover:bg-sky-200 hover:text-sky-900">Search</button>
-      </form>
-      <form id="tagSearch" class="mt-1">
-        <label>Select A Tag to Search From:</label>
-        <select name="search-tag" id="search-tag" class="text-sky-900 w-28">
-          {{#each tags}}
-          <option value="{{id}}">{{name}}</option>
-          {{/each}}
-        </select>
-        <button id="searchTagBtn" type="submit" class="ml-1 px-2 bg-stone-400 text-stone-700 rounded hover:bg-sky-200 hover:text-sky-900">Search</button>
-      </form>
-    </div> --}}
-
     <nav class="py-3">
       <a href="/profile" class="mx-3">My Profile</a>
       {{#if loggedIn}}
+      <a href="/order">My Orders</a>
       <button id="logoutBtn" class="mx-3">Logout</button>
       {{else}}
       <a href="/login" class="mx-3">Login</a>
@@ -59,5 +40,6 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
-  <script src="/javascript/search.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 </body>

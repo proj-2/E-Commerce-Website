@@ -1,14 +1,39 @@
 {{#if products.length}}
-<h3>My Existing Listings</h3>
+<h2>Search Results for {{title}}</h2>
 <ul class="existingListings">
   {{#each products as |product|}}
   <li>
-    {{> product product}}
-    <a class="viewProductBtn" href="/profile/product/{{product.id}}">View Product</a>
+    <article>
+      <h3>{{name}}</h3>
+      <p>{{description}}</p>
+      <p>Listed By : {{user.first_name}} {{user.last_name}}</p>
+      {{#if curRate}}
+      <p>{{cur_convert price curRate}} {{currency}}</p>
+      {{else}}
+      <p>{{price}} {{user.currency}}</p>
+      {{/if}}
+      {{!-- <p>Sorting ID: {{SKU}}</p>
+      <p>Shipping From: {{origin}}</p>
+      <p>Stock: {{stock}} remaining</p>
+      {{#if length}}
+      <p> Product Dimensions (L x W x H):
+          {{length}} {{dimension_units}} X {{width}} {{dimension_units}} X {{height}} {{dimension_units}}</p>
+      <p>Product Weight: {{weight}} {{weight_units}}</p>
+      {{/if}}
+      <div>
+          <p>Category:</p>
+          <a href="/search/category/{{category.id}}">{{category.category_name}}</a>
+      </div> --}}
+      {{!-- <div>
+          <p>Tags:</p>
+          {{#each tags}}
+          <a href="/search/tag/{{id}}">{{name}}</a>
+          {{/each}}
+      </div> --}}
+    </article>
+    {{!-- {{> product product}} --}}
+    <a class="viewProductBtn" href="/search/product/{{product.id}}">View Product</a>
   </li>
   {{/each}}
 </ul>
 {{/if}}
-
-{{!--
-<script src="/javascript/login.js"></script> --}}
