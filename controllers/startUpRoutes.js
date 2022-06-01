@@ -61,10 +61,11 @@ router.get("/search/category/:num", (req, res) => {
         ]
     })
         .then(productData => {
-            const products = productData.map(product => product.get({ plain: true }))
+            const intialProduct = productData.map(product => product.get({ plain: true }))
+            const products = intialProduct.map(product => ({ ...product, loggedIn: req.session.loggedIn, curRate: req.session.curRate, currency: req.session.currency }))
             const categoryTitle = products[0].category.category_name
             const title = `Category: ${categoryTitle}`
-            res.render("search-results", { products, title, loggedIn: req.session.loggedIn })
+            res.render("search-results", { products, title })
         })
         .catch(err => {
             console.log(err)

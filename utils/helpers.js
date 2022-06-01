@@ -1,8 +1,6 @@
 module.exports = {
-    cur_convert: (price) => {
-        const curRate = 1.22;
-        // const currency = Session.get('currency');
-        // console.log(curRate, currency);
+    cur_convert: (price, curRate) => {
+        console.log(curRate);
         return `${price * curRate}`
     }
 }
