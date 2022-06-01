@@ -62,7 +62,9 @@ router.get("/search/category/:num", (req, res) => {
     })
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: req.session.loggedIn })
+            const categoryTitle = products[0].category.category_name
+            const title = `Category: ${categoryTitle}`
+            res.render("search-results", { products, title, loggedIn: req.session.loggedIn })
         })
         .catch(err => {
             console.log(err)
@@ -108,7 +110,9 @@ router.get("/search/tag/:num", (req, res) => {
         .then(tagData => {
             const productData = tagData.dataValues.products
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: req.session.loggedIn })
+            const tagTitle = tagData.dataValues.name
+            const title = `Tag: ${tagTitle}`
+            res.render("search-results", { products, title, loggedIn: req.session.loggedIn })
         })
         .catch(err => {
             console.log(err)
