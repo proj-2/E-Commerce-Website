@@ -2,7 +2,11 @@
     <h3>{{name}}</h3>
     <p>{{description}}</p>
     <p>Listed By : {{user.first_name}} {{user.last_name}}</p>
+    {{#if curRate}}
+    <p>{{cur_convert price curRate}} {{currency}}</p>
+    {{else}}
     <p>{{price}} {{user.currency}}</p>
+    {{/if}}
     <p>Sorting ID: {{SKU}}</p>
     <p>Shipping From: {{origin}}</p>
     <p>Stock: {{stock}} remaining</p>

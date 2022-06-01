@@ -1,6 +1,6 @@
 module.exports = {
     cur_convert: (price, curRate) => {
-        console.log(curRate);
-        return `${price * curRate}`
+        const cnvPrice = (price * curRate) * 100;
+        return `${Math.ceil(cnvPrice) * 0.01}`
     }
 }

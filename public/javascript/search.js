@@ -2,7 +2,7 @@ async function searchFormHandler(event) {
   event.preventDefault();
 
   const category_id = document.querySelector("#search-category").value.trim();
-  const prefer_cur = document.querySelector('#cur-btn').getAttribute('data-cur-to');
+  const prefer_cur = document.querySelector('#pref-cur').value.trim();
   console.log(category_id)
   console.log(prefer_cur);
 
@@ -24,6 +24,7 @@ async function searchTagFrom(event) {
   event.preventDefault();
 
   const tag_id = document.querySelector("#search-tag").value.trim();
+  const prefer_cur = document.querySelector('#pref-cur').value.trim();
   console.log(tag_id)
 
   const response = await fetch('/api/curRate', {
