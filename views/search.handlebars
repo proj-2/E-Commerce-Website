@@ -1,44 +1,49 @@
-<section class="my-20">
-  <h1 class="text-5xl text-center text-sky-900">
-    Welcome To
-  </h1>
-  <div class="flex justify-center mt-2">
-    <a href="/" class="w-2/12">
-      <image src="/images/dEv-Commerce_logo.png" alt="dEv Commerce application's logo"></image>
-    </a>
-  </div>
-</section>
-
-<section >
-  <h2>Search by Category</h2>
-  <form id="searchForm">
-    <div>
-      <label for="search-category">Select a Category to Search from:</label>
-      <select name="search-category" id="search-category">
-        <option value="1">Hardware</option>
-        <option value="2">Software</option>
-      </select>
+<div class="my-16">
+  <section>
+    <h1 class="text-5xl text-center text-sky-900">
+      Welcome To
+    </h1>
+    <div class="flex justify-center mt-3">
+      <a href="/" class="w-2/12">
+        <image src="/images/dEv-Commerce_logo.png" alt="dEv Commerce application's logo"></image>
+      </a>
     </div>
-    <button id="searchFormBtn" type="submit">Search</button>
-  </form>
-</section>
-<form id="tagSearch">
-  <div>
-    <label>Select A Tag to Search From:</label>
-    <select name="search-tag" id="search-tag">
-      {{#each tags}}
-      <option value="{{id}}">{{name}}</option>
-      {{/each}}
-    </select>
-    <button id="searchTagBtn" type="submit">Search</button>
-  </div>
-</form>
-<form>
-  <label for="pref-cur">Select a Preferable Currency:</label>
-  <select name="pref-cur" id="pref-cur">
-    <option>USD</option>
-    <option>CAD</option>
-  </select>
-</form>
+  </section>
+
+  <section class="row justify-content-center my-8">
+    <div class="d-flex flex-column text-xl">
+      <form id="searchForm" class="mt-1">
+        <label for="search-category">Select a Category to Search from:</label>
+        <div>
+          <select name="search-category" id="search-category" class="w-5/12">
+            <option value="1">Hardware</option>
+            <option value="2">Software</option>
+          </select>
+          <button id="searchFormBtn" type="submit" class="bg-stone-200 px-2 ml-2 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Search</button>
+        </div>
+      </form>
+
+      <form id="tagSearch" class="mt-3">
+        <label>Select a Tag to Search From:</label>
+        <div>
+          <select name="search-tag" id="search-tag" class="w-5/12">
+            {{#each tags}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+          </select>
+          <button id="searchTagBtn" type="submit" class="bg-stone-200 px-2 ml-2 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Search</button>
+        </div>
+      </form>
+      
+      <form class="mt-3">
+        <label for="pref-cur">Select a Preferable Currency:</label>
+        <select name="pref-cur" id="pref-cur" class="w-3/12">
+          <option>USD</option>
+          <option>CAD</option>
+        </select>
+      </form>
+    </div>
+  </section>
+</div>
 
 <script src="/javascript/search.js"></script>
