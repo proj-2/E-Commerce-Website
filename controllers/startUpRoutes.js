@@ -209,8 +209,13 @@ router.get("/order", validation, (req, res) => {
         }
     })
         .then(orderData => {
-            const initialOrderData = orderData.map(order => order.get({ plain: true }))
-            const orders = initialOrderData[0].product_order
+            const initialOrderData = orderData.map(order => order.get({ plain: true }))[0].product_order
+            const orders = initialOrderData.map(order => ({
+                ...order,
+                curRate: req.session.curRate, 
+                currency: req.session.currency 
+            }));
+
             res.render('order', { loggedIn: req.session.loggedIn, orders })
         })
         .catch(err => {
