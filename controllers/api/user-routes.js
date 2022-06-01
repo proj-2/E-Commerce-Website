@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("../../models");
+const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order } = require("../../models");
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -19,6 +19,33 @@ router.get('/:id', (req, res) => {
             {
                 model: Product,
                 attributes: ['id', 'name', 'description', 'price', 'origin', 'SKU']
+            }
+        ],
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(userData => {
+            if (!userData) {
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+            res.json(userData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+router.get('/order/:id', (req, res) => {
+    User.findOne({
+        attributes: ['id', 'first_name', 'last_name', 'email', 'password', 'currency'],
+        include: [
+            {
+                model: Product,
+                attributes: ['id', 'name', 'description', 'price', 'origin', 'SKU'],
+                through: Order,
+                as: 'product_order'
             }
         ],
         where: {

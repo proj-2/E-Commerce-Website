@@ -3,9 +3,6 @@ const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order } = re
 
 const validation = require("../utils/validation")
 
-
-
-
 router.get("/", (req, res) => {
     Tag.findAll({
         attributes: ['id', 'name']
@@ -162,7 +159,9 @@ router.get("/order/product/:id", validation, (req, res) => {
         user_id: req.session.user_id
     })
         .then(orderData => {
-            console.log(orderData)
+            console.log(orderData.dataValues)
+
+
         })
 })
 
