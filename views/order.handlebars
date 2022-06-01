@@ -1,8 +1,15 @@
 <h2>My Orders</h2>
+{{#if orders.length}}
 <ul class="myOrders">
     {{#each orders as |order|}}
-    <li>
+    <li id="orderList">
         {{>order-partial order}}
+        <button id="orderDeleteBtn">Remove Item from Orders</button>
     </li>
     {{/each}}
 </ul>
+{{else}}
+<h3>No Items Added to your Order</h3>
+{{/if}}
+
+<script src="/javascript/deleteOrder.js"></script>

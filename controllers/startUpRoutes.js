@@ -194,9 +194,22 @@ router.get("/order", validation, (req, res) => {
         .then(orderData => {
             const initialOrderData = orderData.map(order => order.get({ plain: true }))
             const orders = initialOrderData[0].product_order
-            console.log(orders)
             res.render('order', { loggedIn: req.session.loggedIn, orders })
         })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+
+router.post("/orderDelete", (req, res) => {
+    Order.destroy({
+        where: {
+            user_id: req.session.user_id,
+            product_id: req.body.product_id
+        }
+    })
+        .then(res.render('order'))
         .catch(err => {
             console.log(err)
             res.status(500).json(err)
