@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("../models/");
+const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order } = require("../models/");
+
+const validation = require("../utils/validation")
+
 
 
 
@@ -62,7 +65,7 @@ router.get("/search/category/:num", (req, res) => {
     })
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: true })
+            res.render("search-results", { products, loggedIn: req.session.loggedIn })
         })
         .catch(err => {
             console.log(err)
@@ -108,7 +111,7 @@ router.get("/search/tag/:num", (req, res) => {
         .then(tagData => {
             const productData = tagData.dataValues.products
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: true })
+            res.render("search-results", { products, loggedIn: req.session.loggedIn })
         })
         .catch(err => {
             console.log(err)
@@ -145,11 +148,21 @@ router.get("/search/product/:num", (req, res) => {
     })
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
-            res.render("search-results", { products, loggedIn: true })
+            res.render("search-results", { products, loggedIn: req.session.loggedIn })
         })
         .catch(err => {
             console.log(err)
             res.status(500).json(err)
+        })
+})
+
+router.get("/order/product/:id", validation, (req, res) => {
+    Order.create({
+        product_id: req.params.id,
+        user_id: req.session.user_id
+    })
+        .then(orderData => {
+            console.log(orderData)
         })
 })
 
