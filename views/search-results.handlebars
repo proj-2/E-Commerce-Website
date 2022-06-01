@@ -1,39 +1,31 @@
-{{#if products.length}}
-<h2>Search Results for {{title}}</h2>
-<ul class="existingListings">
-  {{#each products as |product|}}
-  <li>
-    <article>
-      <h3>{{name}}</h3>
-      <p>{{description}}</p>
-      <p>Listed By : {{user.first_name}} {{user.last_name}}</p>
-      {{#if curRate}}
-      <p>{{cur_convert price curRate}} {{currency}}</p>
-      {{else}}
-      <p>{{price}} {{user.currency}}</p>
-      {{/if}}
-      {{!-- <p>Sorting ID: {{SKU}}</p>
-      <p>Shipping From: {{origin}}</p>
-      <p>Stock: {{stock}} remaining</p>
-      {{#if length}}
-      <p> Product Dimensions (L x W x H):
-          {{length}} {{dimension_units}} X {{width}} {{dimension_units}} X {{height}} {{dimension_units}}</p>
-      <p>Product Weight: {{weight}} {{weight_units}}</p>
-      {{/if}}
-      <div>
-          <p>Category:</p>
-          <a href="/search/category/{{category.id}}">{{category.category_name}}</a>
-      </div> --}}
-      {{!-- <div>
-          <p>Tags:</p>
-          {{#each tags}}
-          <a href="/search/tag/{{id}}">{{name}}</a>
-          {{/each}}
-      </div> --}}
-    </article>
-    {{!-- {{> product product}} --}}
-    <a class="viewProductBtn" href="/search/product/{{product.id}}">View Product</a>
-  </li>
-  {{/each}}
-</ul>
-{{/if}}
+<div class="my-3 p-3">
+  <h2 class="text-2xl">Search Results for {{title}}</h2>
+  <section class="bg-sky-100 mt-2">
+    {{#if products.length}}
+    <ul class="existingListings p-3">
+      {{#each products as |product|}}
+      <li class="p-3 card mb-3">
+        <article class="row no-gutters">
+          <div class="col-2 p-2">
+            <img src="/images/no-image-icon.jpg" alt="no image icon" class="border p-1" />
+          </div>
+          <div class="col-10 py-2 px-4">
+            <h3 class="text-xl">{{name}}</h3>
+            <p>{{description}}</p>
+            <p>Listed By : {{user.first_name}} {{user.last_name}}</p>
+            {{#if curRate}}
+            <p>{{cur_convert price curRate}} {{currency}}</p>
+            {{else}}
+            <p class="text-lg">{{price}} {{user.currency}}</p>
+            {{/if}}
+            <div class="my-2">
+              <a class="viewProductBtn px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-sky-900 hover:text-sky-200" href="/search/product/{{product.id}}">View Product</a>
+            </div>
+          </div>
+        </article>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </section>
+</div>
