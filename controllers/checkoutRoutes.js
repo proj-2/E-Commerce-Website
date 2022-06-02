@@ -38,18 +38,19 @@ router.get("/", validation, (req, res) => {
       }));
 
       let totalPrice = 0
-      
+
       for (let i = 0; i < orders.length; i++) {
         totalPrice += orders[i].price
       }
 
-      let price = totalPrice.toFixed(2)
+      // let price1 = totalPrice.toFixed(2)
+      let price = Number(totalPrice).toFixed(2)
       let currency = getCurrency[0].currency
 
-      res.render("checkout", { 
-        currency, 
-        price, 
-        loggedIn: true, 
+      res.render("checkout", {
+        currency,
+        price,
+        loggedIn: true,
         curRate: req.session.curRate,
         currency: req.session.currency
       });
