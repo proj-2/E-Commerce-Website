@@ -1,16 +1,19 @@
-{{#if products.length}}
-<ul class="existingListings">
-    {{#each products as |product|}}
-    <li>
-        {{> product product}}
-        <a class="viewProductBtn" href="/search/product/{{product.id}}">View Product</a>
-        {{#if loggedIn}}
-        <button id="orderProductBtn">Order Product</button>
-        {{/if}}
-    </li>
-    {{/each}}
-</ul>
-{{/if}}
-{{#if loggedIn}}
-<script src="/javascript/order.js"></script>
-{{/if}}
+<div class="my-3 p-3">
+  <section class="bg-sky-100 mt-4">
+    {{#if products.length}}
+    <ul class="existingListings p-3">
+        {{#each products as |product|}}
+        <li class="p-3 mb-3 container">
+            {{> product product}}
+            {{#if loggedIn}}
+            <button id="orderProductBtn">Order Product</button>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+    {{#if loggedIn}}
+    <script src="/javascript/order.js"></script>
+    {{/if}}
+  </section>
+</div>
