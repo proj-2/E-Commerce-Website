@@ -32,7 +32,7 @@ router.get("/", validation, (req, res) => {
       const orders = initialOrderData.map((order) => ({
         ...order,
       }));
-      console.log(orderData);
+      console.log(orders);
       res.render("checkout", { orders, loggedIn: true });
     })
     .catch((err) => {
