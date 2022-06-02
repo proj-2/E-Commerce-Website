@@ -70,7 +70,8 @@ router.get("/search/category/:num", (req, res) => {
             }));
             const categoryTitle = products[0].category.category_name
             const title = `Category: ${categoryTitle}`
-            res.render("search-results", { products, title })
+            console.log(req.session.curRate);
+            res.render("search-results", { products, title, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err)
