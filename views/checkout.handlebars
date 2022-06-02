@@ -1,6 +1,10 @@
 <h2 class="checkoutTitle">Checkout</h2>
 
-<p class="totalPrice">Your Total Price is: {{price}} {{currency}}</p>
+{{#if curRate}}
+<p class="totalPrice">Your Total Price is: {{cur_convert price curRate}} {{currency}}</p>
+{{else}}
+<p class="totalPrice">Your Total Price is: {{price}} USD</p>
+{{/if}}
 
 <form class="checkout-form">
   <div>
