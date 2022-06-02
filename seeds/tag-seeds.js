@@ -50,7 +50,7 @@ const tagData = [
         name: 'open source'
     },
     {
-        name: 'shareware'
+        name: 'free ware'
     },
 
 ]
