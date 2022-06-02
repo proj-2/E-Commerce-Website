@@ -15,7 +15,7 @@ async function deleteOrder(event) {
     })
 
     if (response.ok) {
-        document.location.replace("/order")
+        window.location.reload();
         alert("Item Removed from Orders")
     } else {
         alert(response.statusText)
