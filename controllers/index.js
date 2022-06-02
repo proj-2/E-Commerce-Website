@@ -7,7 +7,8 @@ const checkoutRoutes = require("./checkoutRoutes");
 
 router.use("/api", apiRoutes);
 router.use("/profile", profileRoutes);
-router.use("/", startUpRoutes);
 router.use("/checkout", checkoutRoutes);
+router.use("/", startUpRoutes);
+
 
 module.exports = router;
