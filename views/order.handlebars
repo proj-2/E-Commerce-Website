@@ -1,5 +1,12 @@
 <div class="my-3 p-3 row">
-    <h2 class="text-3xl col-12">My Orders</h2>
+    <div>
+        <h2 class="text-3xl col-12">My Orders</h2>
+        {{#if orders.length}}
+        <button id="checkout-button"
+            class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Proceed to
+            checkout</button>
+        {{/if}}
+    </div>
     <section class="bg-sky-100 mt-2 ml-4 col-6">
         {{#if orders.length}}
         <ul class="myOrders">
@@ -10,10 +17,9 @@
             {{/each}}
         </ul>
         {{else}}
-        <h3>No Items Added to your Order</h3>
+        <h3 class="ml-1 pt-1 pb-20 text-lg">No Items Added to your Order</h3>
         {{/if}}
     </section>
 </div>
-<button>Proceed to Checkout</button>
 
 <script src="/javascript/deleteOrder.js"></script>

@@ -1,0 +1,29 @@
+#checkout-button {
+    margin-top: 5px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.checkoutTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.totalPrice {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.checkout-form {
+    border: 2px solid black;
+    padding: 5px;
+}

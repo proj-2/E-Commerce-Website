@@ -62,15 +62,15 @@ router.get("/search/category/:num", (req, res) => {
     })
         .then(productData => {
             const initialProduct = productData.map(product => product.get({ plain: true }))
-            const products = initialProduct.map(product => ({ 
-                ...product, 
-                loggedIn: req.session.loggedIn, 
-                curRate: req.session.curRate, 
-                currency: req.session.currency 
+            const products = initialProduct.map(product => ({
+                ...product,
+                loggedIn: req.session.loggedIn,
+                curRate: req.session.curRate,
+                currency: req.session.currency
             }));
             const categoryTitle = products[0].category.category_name
             const title = `Category: ${categoryTitle}`
-            res.render("search-results", { products, title })
+            res.render("search-results", { products, title, loggedIn: req.session.loggedIn })
         })
         .catch(err => {
             console.log(err)
@@ -116,11 +116,11 @@ router.get("/search/tag/:num", (req, res) => {
         .then(tagData => {
             const productData = tagData.dataValues.products
             const initialProduct = productData.map(product => product.get({ plain: true }))
-            const products = initialProduct.map(product => ({ 
-                ...product, 
-                loggedIn: req.session.loggedIn, 
-                curRate: req.session.curRate, 
-                currency: req.session.currency 
+            const products = initialProduct.map(product => ({
+                ...product,
+                loggedIn: req.session.loggedIn,
+                curRate: req.session.curRate,
+                currency: req.session.currency
             }));
             const tagTitle = tagData.dataValues.name
             const title = `Tag: ${tagTitle}`
@@ -161,11 +161,11 @@ router.get("/search/product/:num", (req, res) => {
     })
         .then(productData => {
             const initialProduct = productData.map(product => product.get({ plain: true }))
-            const products = initialProduct.map(product => ({ 
-                ...product, 
-                loggedIn: req.session.loggedIn, 
-                curRate: req.session.curRate, 
-                currency: req.session.currency 
+            const products = initialProduct.map(product => ({
+                ...product,
+                loggedIn: req.session.loggedIn,
+                curRate: req.session.curRate,
+                currency: req.session.currency
             }));
             res.render("single-product", { products: products, loggedIn: req.session.loggedIn })
         })
@@ -212,8 +212,8 @@ router.get("/order", validation, (req, res) => {
             const initialOrderData = orderData.map(order => order.get({ plain: true }))[0].product_order
             const orders = initialOrderData.map(order => ({
                 ...order,
-                curRate: req.session.curRate, 
-                currency: req.session.currency 
+                curRate: req.session.curRate,
+                currency: req.session.currency
             }));
 
             res.render('order', { loggedIn: req.session.loggedIn, orders })
