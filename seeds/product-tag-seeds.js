@@ -131,47 +131,47 @@ const productTagData = [
     },
     {
         product_id: 12,
-        tag: 4
+        tag_id: 4
     },
     {
         product_id: 12,
-        tag: 5
+        tag_id: 5
     },
     {
         product_id: 13,
-        tag: 10
-    },
-    {
-        product_id: 12,
-        tag: 6
+        tag_id: 10
     },
     {
         product_id: 13,
-        tag: 9
+        tag_id: 6
     },
     {
-        product_id: 12,
-        tag: 10
+        product_id: 14,
+        tag_id: 9
     },
     {
-        product_id: 13,
-        tag: 3
+        product_id: 14,
+        tag_id: 10
     },
     {
-        product_id: 13,
-        tag: 12
+        product_id: 15,
+        tag_id: 3
     },
     {
-        product_id: 13,
-        tag: 15
+        product_id: 15,
+        tag_id: 12
     },
     {
-        product_id: 13,
-        tag: 17
+        product_id: 15,
+        tag_id: 15
     },
     {
-        product_id: 13,
-        tag: 16
+        product_id: 15,
+        tag_id: 17
+    },
+    {
+        product_id: 15,
+        tag_id: 16
     },
 ]
 
