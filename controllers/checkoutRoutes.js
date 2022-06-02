@@ -12,7 +12,6 @@ const {
 const validation = require("../utils/validation");
 
 router.get("/", validation, (req, res) => {
-  console.log(req.session);
   User.findAll({
     where: {
       id: req.session.user_id,
@@ -29,19 +28,31 @@ router.get("/", validation, (req, res) => {
       const initialOrderData = orderData.map((order) =>
         order.get({ plain: true })
       )[0].product_order;
+
       const getCurrency = orderData.map((order) =>
         order.get({ plain: true })
       )
+
       const orders = initialOrderData.map((order) => ({
-        ...order,
+        ...order
       }));
+
       let totalPrice = 0
+      
       for (let i = 0; i < orders.length; i++) {
         totalPrice += orders[i].price
       }
+
       let price = totalPrice.toFixed(2)
       let currency = getCurrency[0].currency
-      res.render("checkout", { currency, price, loggedIn: true });
+
+      res.render("checkout", { 
+        currency, 
+        price, 
+        loggedIn: true, 
+        curRate: req.session.curRate,
+        currency: req.session.currency
+      });
     })
     .catch((err) => {
       console.log(err);

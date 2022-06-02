@@ -27,7 +27,7 @@ for (let i = 0; i < deleteButtons.length; i++) {
   deleteButtons[i].addEventListener("click", deleteOrder);
 }
 
-async function proceedcheckout(event) {
+async function proceedCheckout(event) {
   event.preventDefault();
 
   document.location.replace("/checkout");
@@ -35,4 +35,4 @@ async function proceedcheckout(event) {
 
 document
   .querySelector("#checkout-button")
-  .addEventListener("click", proceedcheckout);
+  .addEventListener("click", proceedCheckout);
