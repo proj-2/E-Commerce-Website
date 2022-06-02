@@ -10,7 +10,14 @@ async function signUpFormHandler(event) {
 
 
   if (!first_name || !last_name || !email || !password || !repassword || !currency) {
-    alert("Please enter all field from the signup form to create an account")
+    alert("Please enter all field from the signup form to create an account");
+  } else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    alert("You have entered an invalid email address!");
+  } else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,16}$/.test(password)) {
+//} else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,16)}$/.test(password)) {
+    alert("You have entered an invalid password!");
+  } else if(password != repassword) {
+    alert("Your passwords do not match!");
   } else {
     if (password !== repassword) {
       alert("The passwords entered do not match!")
