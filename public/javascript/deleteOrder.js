@@ -1,7 +1,10 @@
 async function deleteOrder(event) {
     event.preventDefault();
 
-    const id = this.previousElementSibling.innerHTML;
+    const id2 = this.parentNode;
+    const id3 = id2.previousElementSibling;
+    const id = id3.lastElementChild.innerHTML;
+    console.log(id)
     const product_id = id.split(' ')[id.split(' ').length - 1]
     const response = await fetch("/orderDelete", {
         method: 'post',
