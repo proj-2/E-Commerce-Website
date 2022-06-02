@@ -4,26 +4,7 @@
     {{#if products.length}}
     <ul class="existingListings p-3">
       {{#each products as |product|}}
-      <li class="p-3 card mb-3">
-        <article class="row no-gutters">
-          <div class="col-2 p-2">
-            <img src="/images/no-image-icon.jpg" alt="no image icon" class="border p-1" />
-          </div>
-          <div class="col-10 py-2 px-4">
-            <h3 class="text-xl">{{name}}</h3>
-            <p>{{description}}</p>
-            <p>Listed By : {{user.first_name}} {{user.last_name}}</p>
-            {{#if curRate}}
-            <p>{{cur_convert price curRate}} {{currency}}</p>
-            {{else}}
-            <p class="text-lg">{{price}} {{user.currency}}</p>
-            {{/if}}
-            <div class="my-2">
-              <a class="viewProductBtn px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-sky-900 hover:text-sky-200" href="/search/product/{{product.id}}">View Product</a>
-            </div>
-          </div>
-        </article>
-      </li>
+      {{>result-list product}}
       {{/each}}
     </ul>
     {{/if}}

@@ -1,18 +1,25 @@
-<h2>My Profile</h2>
+<div class="my-3 p-3">
+    <h2 class="text-3xl">My Profile</h2>
 
-<h3>Post a New Listing</h3>
-<button id="newlistingBtn">New Item</button>
+    <section class="mt-3">
+        <h3 class="text-2xl my-2">Post a New Listing</h3>
+        <button id="newlistingBtn" class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Add New Item</button>
+    </section>
 
-{{#if products.length}}
-<h3>My Existing Listings</h3>
-<ul class="existingListings">
-    {{#each products as |product|}}
-    <li>
-        {{> product product}}
-        <a class="viewProductBtn" href="/search/product/{{product.id}}">View Product</a>
-    </li>
-    {{/each}}
-</ul>
-{{/if}}
+    <section class="mt-3">
+        <h3 class="text-2xl my-2">My Existing Listings</h3>
+        {{#if products.length}}
+        <div>
+            <ul class="existingListings ml-1 p-1">
+                {{#each products as |product|}}
+                {{>result-list product}}
+                {{/each}}
+            </ul>
+            {{else}}
+            <p class="ml-1 text-lg">No item</p>
+            {{/if}}
+        </div>
+    </section>
+</div>
 
 <script src="/javascript/profile.js"></script>

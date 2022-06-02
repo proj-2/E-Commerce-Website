@@ -1,80 +1,82 @@
-<h2>List an Item to Sell on the marketplace</h2>
-
-<form id="listItemForm">
-    <div>
-        <label for="product-name">Product Name (required):</label>
-        <input type="text" id="product-name">
-    </div>
-    <div>
-        <label for="product-description">Description (required):</label>
-        <textarea type="text" id="product-description"></textarea>
-    </div>
-    <div>
-        <label for="product-price">Price (required):</label>
-        <input type="number" id="product-price"></input>
-    </div>
-    <div>
-        <label for="product-SKU">SKU (required):</label>
-        <input type="number" id="product-SKU"></input>
-    </div>
-    <div>
-        <label for="product-origin">Shipping From (required):</label>
-        <input type="text" id="product-origin"></input>
-    </div>
-    <div>
-        <label for="product-category">Product Category (required):</label>
-        <select id="product-category" name="product-category">
-            <option value="1">Hardware</option>
-            <option value="2">Software</option>
-        </select>
-    </div>
-    <div>
-        <label for="product-shipping">Shipping Provider (required):</label>
-        <select id="product-shipping" name="product-shipping">
-            <option value="1">UPS</option>
-            <option value="2">FEDEX</option>
-            <option value="3">DHL</option>
-        </select>
-    </div>
-    <div>
-        <label for="product-stock">Stock (required):</label>
-        <input type="number" id="product-stock"></input>
-    </div>
-    <div>
-        <label for="product-length">Length (optional):</label>
-        <input type="number" id="product-length"></input>
-    </div>
-    <div>
-        <label for="product-width">Width (optional):</label>
-        <input type="number" id="product-width"></input>
-    </div>
-    <div>
-        <label for="product-height">Height (optional):</label>
-        <input type="number" id="product-height"></input>
-    </div>
-    <div>
-        <label for="product-dimension-units">Dimension Units (optional):</label>
-        <input type="text" id="product-dimension-units"></input>
-    </div>
-    <div>
-        <label for="product-weight">Weight (optional):</label>
-        <input type="number" id="product-weight"></input>
-    </div>
-    <div>
-        <label for="product-weight-units">Weight Units (optional):</label>
-        <input type="text" id="product-weight-units"></input>
-    </div>
-    <div>
-        <label>Tags (required):</label>
-        {{#each tags}}
-        <input type="checkbox" name="product-tag" id="product-tag" value="{{id}}">
-        <label for="product-tag">{{name}}</label>
-        {{/each}}
-    </div>
-    <div>
-        <button id="listItemBtn" type="submit">List Item</button>
-    </div>
-</form>
-
+<section class="flex justify-center my-3">
+    <form id="listItemForm" class="p-2">
+        <h2 class="text-3xl">List an Item to Sell on the marketplace</h2>
+        <div class="mt-2 ml-2 text-lg">
+            <div class="my-1">
+                <label for="product-name">Product Name (required): </label>
+                <input type="text" id="product-name">
+            </div>
+            <div class="my-1 d-flex">
+                <label for="product-description" class="align-self-start">Description (required): </label>
+                <textarea type="text" id="product-description" class="mb-2"></textarea>
+            </div>
+            <div class="my-1">
+                <label for="product-price">Price (required): </label>
+                <input type="number" id="product-price"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-SKU">SKU (required): </label>
+                <input type="number" id="product-SKU"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-origin">Shipping From (required): </label>
+                <input type="text" id="product-origin"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-category">Product Category (required): </label>
+                <select id="product-category" name="product-category" class="w-3/12">
+                    <option value="1">Hardware</option>
+                    <option value="2">Software</option>
+                </select>
+            </div>
+            <div class="my-1">
+                <label for="product-shipping">Shipping Provider (required): </label>
+                <select id="product-shipping" name="product-shipping" class="w-3/12">
+                    <option value="1">UPS</option>
+                    <option value="2">FEDEX</option>
+                    <option value="3">DHL</option>
+                </select>
+            </div>
+            <div class="my-1">
+                <label for="product-stock">Stock (required): </label>
+                <input type="number" id="product-stock"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-length">Length (optional): </label>
+                <input type="number" id="product-length"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-width">Width (optional): </label>
+                <input type="number" id="product-width"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-height">Height (optional): </label>
+                <input type="number" id="product-height"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-dimension-units">Dimension Units (optional): </label>
+                <input type="text" id="product-dimension-units"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-weight">Weight (optional): </label>
+                <input type="number" id="product-weight"></input>
+            </div>
+            <div class="my-1">
+                <label for="product-weight-units">Weight Units (optional): </label>
+                <input type="text" id="product-weight-units"></input>
+            </div>
+            <div class="my-1">
+                <label>Tags (required): </label>
+                {{#each tags}}
+                <input type="checkbox" name="product-tag" id="product-tag" value="{{id}}">
+                <label for="product-tag">{{name}}</label>
+                {{/each}}
+            </div>
+            <div>
+                <button id="listItemBtn" type="submit" class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">List Item</button>
+            </div>
+        </div>
+    </form>
+</section>
 
 <script src="/javascript/listing-form.js"></script>
