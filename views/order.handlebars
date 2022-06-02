@@ -1,15 +1,18 @@
-<h2>My Orders</h2>
-{{#if orders.length}}
-<ul class="myOrders">
-    {{#each orders as |order|}}
-    <li id="orderList">
-        {{>order-partial order}}
-        <button id="orderDeleteBtn">Remove Item from Orders</button>
-    </li>
-    {{/each}}
-</ul>
-{{else}}
-<h3>No Items Added to your Order</h3>
-{{/if}}
+<div class="my-3 p-3 row">
+    <h2 class="text-3xl col-12">My Orders</h2>
+    <section class="bg-sky-100 mt-2 ml-4 col-6">
+        {{#if orders.length}}
+        <ul class="myOrders">
+            {{#each orders as |order|}}
+            <li id="orderList" class="row p-3 mb-3">
+                {{>order-partial order}}
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <h3>No Items Added to your Order</h3>
+        {{/if}}
+    </section>
+</div>
 
 <script src="/javascript/deleteOrder.js"></script>

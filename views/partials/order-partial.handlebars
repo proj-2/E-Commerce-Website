@@ -1,8 +1,16 @@
-<h4>{{name}}</h4>
-{{#if curRate}}
-<p>Price: {{cur_convert price curRate}} {{currency}}</p>
-{{else}}
-<p>Price: {{price}} {{user.currency}}</p>
-{{/if}}
-<p>Shipping Provider: {{shipping_provider.shipping_name}}</p>
-<p>Product ID: {{id}}</p>
+<div class="col-2 p-2">
+    <img src="/images/no-image-icon.jpg" alt="no image icon" class="border p-1" />
+</div>
+<div class="col-7 align-self-center">
+    <h4>{{name}}</h4>
+    {{#if curRate}}
+    <p>Price: {{cur_convert price curRate}} {{currency}}</p>
+    {{else}}
+    <p>Price: {{price}} {{user.currency}}</p>
+    {{/if}}
+    <p>Shipping Provider: {{shipping_provider.shipping_name}}</p>
+    <p>Product ID: {{id}}</p>
+</div>
+<div class="col-1 align-self-center">
+    <button id="orderDeleteBtn" class="px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-rose-600 hover:text-rose-200">Remove Item</button>
+</div>
