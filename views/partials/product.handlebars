@@ -1,18 +1,18 @@
 <article class="row px-3">
-    <div class="col-4 p-2">
-        <img src="/images/no-image-icon.jpg" alt="no image icon" class="border p-1" />
+    <div class="col-12 col-sm-4 p-2">
+        <img src="/images/no-image-icon.jpg" alt="no image icon" class="border p-1 w-12/12" />
     </div>
-    <div class="col-8 py-2 px-4 text-sky-900">
-        <h3 class="text-3xl mt-1 mb-3">{{name}}</h3>
-        <p class="text-xl mt-1">{{description}}</p>
-        <p class="text-xl mt-1">Listed By : {{user.first_name}} {{user.last_name}}</p>
+    <div class="col-12 col-sm-8 py-2 px-4 text-sky-900">
+        <h3 class="text-2xl sm:text-3xl mt-1 mb-3">{{name}}</h3>
+        <p class="text-lg sm:text-xl mt-1">{{description}}</p>
+        <p class="text-lg sm:text-xl mt-1">Listed By : {{user.first_name}} {{user.last_name}}</p>
         {{#if curRate}}
-        <p class="text-3xl mt-3">{{cur_convert price curRate}} {{currency}}</p>
+        <p class="text-2xl sm:text-3xl mt-3">{{cur_convert price curRate}} {{currency}}</p>
         {{else}}
-        <p class="text-3xl mt-3">{{price}} {{user.currency}}</p>
+        <p class="text-2xl sm:text-3xl mt-3">{{price}} {{user.currency}}</p>
         {{/if}}
         <div class="mt-5">
-            <h4 class="text-2xl mb-1">Product Details</h4>
+            <h4 class="text-xl sm:text-2xl mb-1">Product Details</h4>
             <p class="mt-1">Sorting ID: {{SKU}}</p>
             <p class="mt-1">Shipping From: {{origin}}</p>
             <p class="mt-1">Stock: {{stock}} remaining</p>
