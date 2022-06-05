@@ -23,7 +23,7 @@
     margin-bottom: 10px;
 }
 
-.checkout-form {
+.checkout-form, #listItemForm {
     border: 2px solid black;
     padding: 5px;
 }
