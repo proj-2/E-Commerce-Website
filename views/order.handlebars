@@ -1,17 +1,19 @@
-<div class="my-3 p-3 row">
-    <div>
-        <h2 class="text-3xl col-12">My Orders</h2>
+<div class="my-3 p-3 grid grid-cols-12">
+    <div class="col-span-12 sm:col-span-3 lg:col-span-2 grid-cols-2">
+        <h2 class="text-3xl">My Orders</h2>
         {{#if orders.length}}
-        <button id="checkout-button"
-            class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Proceed to
-            checkout</button>
+        <div class="invisible sm:visible">
+            <button id="checkout-button" class="sm:ml-1 sm:px-3 sm:py-1 bg-stone-200 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
+                Proceed to checkout
+            </button>
+        </div>
         {{/if}}
     </div>
-    <section class="bg-sky-100 mt-2 ml-4 col-6">
+    <section class="bg-sky-100 mt-2 sm:ml-4 col-span-12 sm:col-span-9 lg:col-span-7 xl:col-span-6">
         {{#if orders.length}}
-        <ul class="myOrders">
+        <ul class="myOrders p-2 sm:p-3">
             {{#each orders as |order|}}
-            <li id="orderList" class="row p-3 mb-3">
+            <li id="orderList" class="grid grid-cols-12 p-1 mb-3 bg-white border border-slate-200">
                 {{>order-partial order}}
             </li>
             {{/each}}
@@ -20,6 +22,13 @@
         <h3 class="ml-1 pt-1 pb-20 text-lg">No Items Added to your Order</h3>
         {{/if}}
     </section>
+    {{#if orders.length}}
+    <div class="col-span-12 visible sm:invisible">
+        <button id="checkout-button" class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
+            Proceed to checkout
+        </button>
+    </div>
+    {{/if}}
 </div>
 
 {{#if orders.length}}

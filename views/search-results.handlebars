@@ -1,8 +1,8 @@
-<div class="my-3 p-3">
+<div class="sm:my-3 p-6">
   <h2 class="text-2xl">Search Results for {{title}}</h2>
   <section class="bg-sky-100 mt-2">
     {{#if products.length}}
-    <ul class="existingListings p-3">
+    <ul class="existingListings p-2 sm:p-3">
       {{#each products as |product|}}
       {{>result-list product}}
       {{/each}}
