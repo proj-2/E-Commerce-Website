@@ -4,7 +4,7 @@ A full stack E-commerce application
 ## Contibutors:
 
 - [Charanvir Singh](https://github.com/charanvir)
-- [Yuri Ichikawa](https://github.com/yuri92)
+- [Yuri Ichikawa](https://github.com/yuriI92)
 - [Michael Guida](https://github.com/pot-of-coffee)
 - [Brennan Merrett](https://github.com/BrennanJLM)
 - [Ferozuddin Zargar](https://github.com/FalconView)
@@ -36,8 +36,8 @@ Wearther shows users current weather and a 5-day weather forecast via images of 
 
 APIs used include:
 
-- [weatherapi](https://www.weatherapi.com/weather/), for the current and hourly weather data
-- [openweatherapi](https://openweathermap.org/), for the five-day forecast data
+- 
+- 
 - [Stripe API](https://dashboard.stripe.com/test/dashboard), 
 
 ## Project Overview
