@@ -23,7 +23,7 @@ A full stack E-commerce application
 
 - Deployed application: 
 - Github repository: [https://github.com/proj-2/E-Commerce-Website](https://github.com/proj-2/E-Commerce-Website)
-- Presentation - [https://prezi.com/view/CzreEgGWKMht88IZr6bg/]
+- Presentation - [https://prezi.com/view/CzreEgGWKMht88IZr6bg/](https://prezi.com/view/CzreEgGWKMht88IZr6bg/)
 
 ## Description / Function
 
