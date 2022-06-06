@@ -21,10 +21,9 @@ A full stack E-commerce application
 
 ## Links
 
-- Deployed application: [https://wearther-a-squad.github.io/interactive-proj-wearther/](https://wearther-a-squad.github.io/interactive-proj-wearther/)
-- Github repository: [https://github.com/Wearther-A-Squad/interactive-proj-wearther](https://github.com/Wearther-A-Squad/interactive-proj-wearther)
-- Presentation - https://www.dropbox.com/s/vy3h22ozb3v2z3h/Wearther%20-%20Presentation.mp4?dl=0
-- Pitch Deck - https://www.dropbox.com/s/y3bwksj2kok3sdh/Wearther%20-%20Pitch%20Deck.m4v?dl=0
+- Deployed application: 
+- Github repository: [https://github.com/proj-2/E-Commerce-Website](https://github.com/proj-2/E-Commerce-Website)
+- Presentation - [https://prezi.com/view/CzreEgGWKMht88IZr6bg/]
 
 ## Description / Function
 
@@ -39,16 +38,52 @@ APIs used include:
 
 - [weatherapi](https://www.weatherapi.com/weather/), for the current and hourly weather data
 - [openweatherapi](https://openweathermap.org/), for the five-day forecast data
-- [Amazon](https://rapidapi.com/restyler/api/amazon23/details), for the amazon listings
+- [Stripe API](https://dashboard.stripe.com/test/dashboard), 
 
 ## Project Overview
 
 ### User Story
 
-```
 AS a USER
-I WANT to know the weather in my location
-SO THAT I know what to wear
-```
+I WANT to create an account
+SO THAT I can interact with the marketplace
+
+AS a PURCHASER
+I WANT to view products on sale
+SO THAT I can purchase items for my developer needs
+
+AS a SELLER
+I WANT to post listings for my product(s)
+SO THAT I can sell them to other developers
+
+AS a SELLER
+I WANT to verify the integrity of my product(s)/account
+SO THAT users can trust what they’re buying
+
 
 ### Acceptance Criteria
+
+ACCEPTANCE TEST FOR USER STORY
+ 
+GIVEN a set of links in a navigation bar
+WHEN I click on a link
+THEN I should go to the appropriate web page that is described by the link.
+
+GIVEN an account system
+WHEN I sign-up with credentials
+THEN they are saved into the database
+When I visit the site at a later time
+Then I can log in using my credentials
+
+GIVEN a marketplace
+WHEN I list a product
+THEN users can purchase it
+WHEN I see a listing
+THEN I can add it to cart
+WHEN I view cart
+THEN I can check-out and process the order
+
+GIVEN a verification system
+WHEN I submit a verification form
+THEN I can be given a verification status
+
