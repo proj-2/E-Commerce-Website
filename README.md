@@ -3,10 +3,10 @@ A full stack E-commerce application
 
 ## Contibutors:
 
-- [Charanvir Singh](https://github.com/charanvirsingh)
-- [Yuri Ichikawa](https://github.com/yuriichikawa)
+- [Charanvir Singh](https://github.com/charanvir)
+- [Yuri Ichikawa](https://github.com/yuri92)
 - [Michael Guida](https://github.com/pot-of-coffee)
-- [Brennan Merrett](https://github.com/Brennanmerrett)
+- [Brennan Merrett](https://github.com/BrennanJLM)
 - [Ferozuddin Zargar](https://github.com/FalconView)
 
 #
