@@ -43,7 +43,7 @@ APIs used include:
 ## Project Overview
 
 ### User Story
-
+```
 AS a USER
 I WANT to create an account
 SO THAT I can interact with the marketplace
@@ -59,7 +59,7 @@ SO THAT I can sell them to other developers
 AS a SELLER
 I WANT to verify the integrity of my product(s)/account
 SO THAT users can trust what they’re buying
-
+```
 
 ### Acceptance Criteria
 
