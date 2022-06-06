@@ -63,6 +63,7 @@ SO THAT users can trust what they’re buying
 
 ### Acceptance Criteria
 
+,,,
 ACCEPTANCE TEST FOR USER STORY
  
 GIVEN a set of links in a navigation bar
@@ -86,4 +87,4 @@ THEN I can check-out and process the order
 GIVEN a verification system
 WHEN I submit a verification form
 THEN I can be given a verification status
-
+,,,
