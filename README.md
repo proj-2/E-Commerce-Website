@@ -27,7 +27,7 @@ A full stack E-commerce application
 
 ## Description / Function
 
-dEv-Commerce is a platform connecting developers and companies together in a single marketplace. It takes the work out of developers trying to find customers and managers their products. dEv-Commerce is also a brand name that can be expanded to provide in house products.
+dEv-Commerce is a platform connecting developers and companies together in a single marketplace. It takes the work out of developers trying to find customers and manage their products. dEv-Commerce is also a brand name that can be expanded to provide in-house products.
 
 This will achieve:
 * Subsidizing costs
@@ -41,7 +41,6 @@ Technologies used include:
 - [Stripe API](https://dashboard.stripe.com/test/dashboard)
 - [Bootstrap](https://getbootstrap.com/)
 - [Tailwind](https://tailwindcss.com/) 
-- 
 - 
 
 ## Project Overview
