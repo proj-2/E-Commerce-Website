@@ -62,39 +62,39 @@ router.get("/listItem", validation, (req, res) => {
 });
 
 
-router.post("/verify", validation, (req, res) => {
-    //verify email params
+// router.post("/verify", validation, (req, res) => {
+//     //verify email params
 
 
-    //send email
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL,
-            pass: process.env.EMAIL_PW
-        }
-    });
+//     //send email
+//     var transporter = nodemailer.createTransport({
+//         service: 'gmail',
+//         auth: {
+//             user: process.env.EMAIL,
+//             pass: process.env.EMAIL_PW
+//         }
+//     });
 
-    var mailOptions = {
-        from: 'youremail@gmail.com',
-        to: process.env.EMAIL,
-        subject: 'Sending Email using Node.js',
-        text: '<a href="localhost/verify?id=[HASH]&email=user@address.com">Verify</a>'
-    };
+//     var mailOptions = {
+//         from: 'youremail@gmail.com',
+//         to: process.env.EMAIL,
+//         subject: 'Sending Email using Node.js',
+//         text: '<a href="localhost/verify?id=[HASH]&email=user@address.com">Verify</a>'
+//     };
 
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
+//     transporter.sendMail(mailOptions, function (error, info) {
+//         if (error) {
+//             console.log(error);
+//         } else {
+//             console.log('Email sent: ' + info.response);
+//         }
+//     });
 
-    //update user.verificationSent = HASH (random 16bit string)
-    //include string in link ie. localhost/verify?id=[HASH]&email=user@address.com
-    //use params to search db
-    //set verified = true for first found item
+//     //update user.verificationSent = HASH (random 16bit string)
+//     //include string in link ie. localhost/verify?id=[HASH]&email=user@address.com
+//     //use params to search db
+//     //set verified = true for first found item
 
-});
+// });
 
 module.exports = router

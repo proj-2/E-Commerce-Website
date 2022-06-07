@@ -11,21 +11,34 @@ document.querySelector("#newlistingBtn").addEventListener("click", selectNewList
 async function verifyUser(event) {
     event.preventDefault();
 
-    //make ajax POST call to route "/profile/verify"
-    const response = await fetch('/profile/verify', {
-        method: 'POST',
+    const updateVerification = await fetch("/api/user/", {
+        method: 'put',
         body: JSON.stringify({
-            "user-email": document.querySelector("#user-email").value
+            verifcationSent: true
         }),
         headers: { 'Content-Type': 'application/json' }
-    });
+    })
 
-    if (response.ok) {
-        alert('email was sent');
+    if (updateVerification.ok) {
+        console.log("verification status updated")
         window.location.reload();
-    } else {
-        alert(response.statusText);
     }
+
+    // //make ajax POST call to route "/profile/verify"
+    // const response = await fetch('/profile/verify', {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         "user-email": document.querySelector("#user-email").value
+    //     }),
+    //     headers: { 'Content-Type': 'application/json' }
+    // });
+
+    // if (response.ok) {
+    //     alert('email was sent');
+    //     window.location.reload();
+    // } else {
+    //     alert(response.statusText);
+    // }
 }
 
 
