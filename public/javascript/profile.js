@@ -22,6 +22,7 @@ async function verifyUser(event) {
 
     if (response.ok) {
         alert('email was sent');
+        window.location.reload();
     } else {
         alert(response.statusText);
     }
