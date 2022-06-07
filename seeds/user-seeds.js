@@ -6,7 +6,8 @@ const userData = [
         last_name: 'Coleman',
         email: 'ron.coleman@example.com',
         password: 'coleman',
-        currency: 'CAD'
+        currency: 'CAD',
+        verified: 'true'
     },
     {
         first_name: 'Terrance',
