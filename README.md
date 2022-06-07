@@ -27,16 +27,18 @@ A full stack E-commerce application
 
 ## Description / Function
 
-dEv-Commerce is a platform connecting developers and companies together in a single marketplace. It takes the work out of developers trying to find customers and managers their products. dEv-Commerce is also a brand name that can be expanded to provide in house products:
+dEv-Commerce is a platform connecting developers and companies together in a single marketplace. It takes the work out of developers trying to find customers and managers their products. dEv-Commerce is also a brand name that can be expanded to provide in house products.
 
-- Current weather & forecast for current day in 3-hr increments, explained visually with appropriate clothing images.
-- 5-day forecast with visual clothing suggestions based on daily average temperature.
-- Amazon links to appropriate clothing given today's weather
-- The ability to "favourite" amazon items (which saves to local storage) and allow users to visit a favourites pages with a list of all the items they saved.
+This will achieve:
+* Subsidizing costs
+* Product standards
+     * Quality
+     * Price
+     * Reliability
 
 Technologies used include:
 
-- [Stripe API](https://dashboard.stripe.com/test/dashboard), 
+- [Stripe API](https://dashboard.stripe.com/test/dashboard)
 - [Bootstrap](https://getbootstrap.com/)
 - [Tailwind](https://tailwindcss.com/) 
 - 
