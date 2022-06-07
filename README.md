@@ -27,7 +27,7 @@ A full stack E-commerce application
 
 ## Description / Function
 
-Wearther shows users current weather and a 5-day weather forecast via images of appropriate clothing for said weather. Wearther prompts the user for their name, age, gender, clothing size, and city of interest, and provides:
+dEv-Commerce is a platform connecting developers and companies together in a single marketplace. It takes the work out of developers trying to find customers and managers their products. dEv-Commerce is also a brand name that can be expanded to provide in house products:
 
 - Current weather & forecast for current day in 3-hr increments, explained visually with appropriate clothing images.
 - 5-day forecast with visual clothing suggestions based on daily average temperature.
