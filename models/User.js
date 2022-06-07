@@ -42,7 +42,16 @@ User.init(
         currency: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        verifcationSent: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        },  
+        verified: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }  
     },
     {
         hooks: {
