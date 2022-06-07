@@ -29,6 +29,7 @@
     "handlebars": "^4.7.7",
     "jest": "^28.1.0",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.5",
     "sequelize": "^6.20.0"
   }
 }

@@ -45,13 +45,13 @@ User.init(
         },
         verifcationSent: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
             defaultValue: false
-        },  
+        },
         verified: {
             type: DataTypes.STRING,
-            allowNull: false
-        }  
+            allowNull: true
+        }
     },
     {
         hooks: {
