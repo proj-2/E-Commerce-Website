@@ -34,11 +34,13 @@ Wearther shows users current weather and a 5-day weather forecast via images of 
 - Amazon links to appropriate clothing given today's weather
 - The ability to "favourite" amazon items (which saves to local storage) and allow users to visit a favourites pages with a list of all the items they saved.
 
-APIs used include:
+Technologies used include:
 
-- 
-- 
 - [Stripe API](https://dashboard.stripe.com/test/dashboard), 
+- [Bootstrap](https://getbootstrap.com/)
+- [Tailwind](https://tailwindcss.com/) 
+- 
+- 
 
 ## Project Overview
 
