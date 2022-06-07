@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
+const stripe = require('stripe')('sk_test_51L717DLeZJfOOS7R9PGEvoW19j7j1a7QeZ2jBQMMWzH4JMwZGWAbZbGBQymhp42JRCKxPCOWfPEYjItul7a9ulgI00ruhiZlhX');
 
 // import other files
 const sequelize = require("./config/connection");
@@ -25,6 +26,23 @@ const sess = {
         db: sequelize,
     })
 };
+
+app.post('/create-checkout-session', async (req, res) => {
+    const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+          // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+          price: '{{PRICE_ID}}',
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${YOUR_DOMAIN}/success.html`,
+      cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+    });
+  
+    res.redirect(303, session.url);
+});
 
 // set up handlebars
 app.engine('handlebars', hbs.engine);

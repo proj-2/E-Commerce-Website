@@ -29,6 +29,7 @@
     "handlebars": "^4.7.7",
     "jest": "^28.1.0",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.20.0"
+    "sequelize": "^6.20.0",
+    "stripe": "^9.6.0"
   }
 }
