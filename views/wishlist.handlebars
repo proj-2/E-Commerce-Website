@@ -3,10 +3,10 @@
     <h2 class="text-3xl">Wishlist</h2>
   </div>
   <div class="bg-sky-100 mt-2 sm:ml-4 col-span-12 sm:col-span-9 lg:col-span-7 xl:col-span-6">
-    {{#if wishlist.length}}
+    {{#if wishlists.length}}
     <ul id="wishlist" class="p-2 sm:p-3">
-      {{#each wishlist as |item|}}
-      <li id="wishlistItem" class="grid grid-cols-12 p-1 mb-3 bg-white border border-slate-200">
+      {{#each wishlists as |item|}}
+      <li data-id="{{id}}" class="grid grid-cols-12 p-1 mb-3 bg-white border border-slate-200">
         {{>order-partial item}}
         <div class="col-span-12 sm:col-span-3 self-center mx-auto sm:mx-0">
           <div class="my-1">
@@ -22,3 +22,7 @@
     {{/if}}
   </div>
 </section>
+
+{{#if wishlists.length}}
+<script src="/javascript/delete-wishlist.js"></script>
+{{/if}}

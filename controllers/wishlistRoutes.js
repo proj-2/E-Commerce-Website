@@ -40,18 +40,32 @@ router.get("/", validation, (req, res) => {
             
             const initialWishlistData = wishlistData.get({ plain: true }).product_wishlist;
             
-            const wishlist = initialWishlistData.map(item => ({
+            const wishlists = initialWishlistData.map(item => ({
                 ...item,
                 curRate: req.session.curRate,
                 currency: req.session.currency
             }));
 
-            res.render('wishlist', { loggedIn: req.session.loggedIn, wishlist });
+            res.render('wishlist', { loggedIn: req.session.loggedIn, wishlists });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         })
 });
+
+router.post("/delete", (req, res) => {
+    Wishlist.destroy({
+        where: {
+            user_id: req.session.user_id,
+            product_id: req.body.product_id
+        }
+    })
+        .then(wishlist => res.json(wishlist))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
 
 module.exports = router;
