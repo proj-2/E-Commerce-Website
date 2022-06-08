@@ -6,7 +6,7 @@
             <input type= "text" id="user-email" value="{{user.email}}" />
         {{#if user.verified}}
             <i class="fa-solid fa-badge-check"></i>
-        {{#if user.verificationSent}}
+        {{else user.verificationSent}}
             <i class="fa-solid fa-loader"></i>
         {{else}}
             <button id="verifyUser">Verify</button>

@@ -43,14 +43,14 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        verifcationSent: {
+        verificationSent: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
             defaultValue: false
         },  
         verified: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         }  
     },
     {

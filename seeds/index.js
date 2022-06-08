@@ -5,6 +5,7 @@ const seedTags = require("./tag-seeds")
 const seedProductTags = require("./product-tag-seeds")
 const seedShipping = require("./shippingprovider-seeds")
 const seedOrder = require("./order-seeds")
+const seedWishlist = require("./wishlist-seeds");
 
 const sequelize = require("../config/connection");
 
@@ -24,6 +25,8 @@ const seedAll = async () => {
     await seedTags();
 
     await seedProductTags();
+
+    await seedWishlist();
 
     process.exit(0);
 }
