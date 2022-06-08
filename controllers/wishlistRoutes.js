@@ -37,9 +37,11 @@ router.get("/", validation, (req, res) => {
         }
     })
         .then(wishlistData => {
-            const initialWishlistData = wishlistData.map(wishlist => wishlist.get({ plain: true }))[0].product_wishlist;
-            const wishlist = initialWishlistData.map(wishlist => ({
-                ...wishlist,
+            
+            const initialWishlistData = wishlistData.get({ plain: true }).product_wishlist;
+            
+            const wishlist = initialWishlistData.map(item => ({
+                ...item,
                 curRate: req.session.curRate,
                 currency: req.session.currency
             }));
