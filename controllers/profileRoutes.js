@@ -15,7 +15,7 @@ router.get('/', validation, (req, res) => {
         include: [
             {
                 model: User,
-                attributes: ['id', 'first_name', 'last_name', 'currency', 'verified', 'verifcationSent']
+                attributes: ['id', 'first_name', 'last_name', 'currency', 'verified', 'verificationSent']
             },
             {
                 model: Category,
@@ -36,10 +36,10 @@ router.get('/', validation, (req, res) => {
         .then(productData => {
             const products = productData.map(product => product.get({ plain: true }))
             const verified = products[0].user.verified
-            const verifcationSent = products[0].user.verifcationSent
-            console.log(verifcationSent)
+            const verificationSent = products[0].user.verificationSent
+            console.log(verificationSent)
             console.log(verified)
-            res.render("profile", { products, verifcationSent, verified, loggedIn: true })
+            res.render("profile", { products, verificationSent, verified, loggedIn: true })
         })
         .catch(err => {
             console.log(err)

@@ -4,7 +4,7 @@ async function verifyUser(event) {
     const updateVerification = await fetch("/api/user/", {
         method: 'put',
         body: JSON.stringify({
-            verifcationSent: true
+            verificationSent: true
         }),
         headers: { 'Content-Type': 'application/json' }
     })
