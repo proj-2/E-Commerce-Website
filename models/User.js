@@ -47,11 +47,12 @@ User.init(
             type: DataTypes.BOOLEAN,
             allowNull: true,
             defaultValue: false
-        },  
+        },
         verified: {
-            type: DataTypes.STRING,
-            allowNull: true
-        }  
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+            defaultValue: false
+        }
     },
     {
         hooks: {
