@@ -172,14 +172,14 @@ router.post("/login", (req, res) => {
     })
         .then(userData => {
             if (!userData) {
-                res.status(400).json({ message: 'No user with that email address!' });
+                res.status(404).json({ message: 'No user with that email address!' });
                 return;
             }
 
             const validateLogin = userData.validatePassword(req.body.password);
 
             if (!validateLogin) {
-                res.status(400).json({ message: 'Incorrect password!' });
+                res.status(401).json({ message: 'Incorrect password!' });
                 return;
             }
             console.log(userData)
