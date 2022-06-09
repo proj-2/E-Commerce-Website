@@ -8,20 +8,33 @@ async function signUpFormHandler(event) {
   const repassword = document.querySelector('#re-enter-password-signup').value.trim();
   const currency = document.querySelector('#preferred-currency-signup').value.trim();
 
+  const modal = document.querySelector('#err-modal');
+  const modal_title = document.querySelector('#modal-title');
+  const err_msg = document.querySelector('#err-msg');
 
   if (!first_name || !last_name || !email || !password || !repassword || !currency) {
-    alert("Please enter all field from the signup form to create an account");
+    modal.classList.remove('invisible');
+    modal_title.innerHTML = 'Invalid information';
+    err_msg.innerHTML = 'Please enter all field from the signup form to create an account';
   } else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    alert("You have entered an invalid email address!");
+    modal.classList.remove('invisible');
+    modal_title.innerHTML = 'Invalid information';
+    err_msg.innerHTML = 'You have entered an invalid email address!';
   } else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,16}$/.test(password)) {
 //} else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,16)}$/.test(password)) {
-    alert("You have entered an invalid password!");
+    modal.classList.remove('invisible');
+    modal_title.innerHTML = 'Invalid information';
+    err_msg.innerHTML = 'You have entered an invalid password!';
   } else if(password != repassword) {
-    alert("Your passwords do not match!");
-  } else {
-    if (password !== repassword) {
-      alert("The passwords entered do not match!")
-      return
+    modal.classList.remove('invisible');
+    modal_title.innerHTML = 'Invalid information';
+    err_msg.innerHTML = 'Your passwords do not match!';
+  // } else {
+    // if (password !== repassword) {
+    //   modal.classList.remove('invisible');
+    //   modal_title.innerHTML = 'Invalid information';
+    //   err_msg.innerHTML = 'Your passwords do not match!';
+    //   return
     } else {
       const response = await fetch('/api/user', {
         method: 'post',
@@ -32,11 +45,11 @@ async function signUpFormHandler(event) {
       });
 
       if (response.ok) {
-        document.location.replace('/search');
+        window.location.replace('/search');
       } else {
         alert(response.statusText);
       }
-    }
+    // }
   }
 }
 
