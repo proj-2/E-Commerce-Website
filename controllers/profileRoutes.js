@@ -37,6 +37,7 @@ router.get('/', validation, (req, res) => {
             let products;
             let verified;
             let verificationSent;
+            console.log(productData);
 
             if (productData = []) {
                 User.findOne({

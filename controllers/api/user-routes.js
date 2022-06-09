@@ -5,7 +5,7 @@ const validation = require("../../utils/validation")
 
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: ['id', 'first_name', 'last_name', 'email', 'password', 'currency']
+        attributes: ['id', 'first_name', 'last_name', 'email', 'password', 'currency', 'verificationSent', 'verified']
     })
         .then(userData => res.json(userData))
         .catch(err => {
