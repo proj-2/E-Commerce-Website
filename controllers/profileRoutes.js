@@ -6,58 +6,52 @@ const validation = require("../utils/validation")
 require('dotenv').config();
 
 router.get('/', validation, (req, res) => {
-    console.log(req.session)
-    Product.findAll({
+    User.findOne({
         where: {
-            user_id: req.session.user_id
+            id: req.session.user_id
         },
-        attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id', 'shipping_id', 'stock', 'length', 'width', 'height', 'dimension_units', 'weight', 'weight_units'],
-        include: [
-            {
-                model: User,
-                attributes: ['id', 'first_name', 'last_name', 'currency', 'verified', 'verificationSent']
-            },
-            {
-                model: Category,
-                attributes: ['id', 'category_name']
-            },
-            {
-                model: ShippingProvider,
-                attributes: ['id', 'shipping_name']
-            },
-            {
-                model: Tag,
-                attributes: ['id', 'name'],
-                through: ProductTag,
-                as: 'tags'
-            }
-        ]
+        attributes: ['id', 'first_name', 'last_name', 'currency', 'verified', 'verificationSent']
     })
-        .then(productData => {
+        .then(userData => {
             let products;
+            const user = userData.get({ plain: true });
             let verified;
-            let verificationSent;
-
-            if (productData = []) {
-                User.findOne({
-                    where: {
-                        id: req.session.user_id
-                    },
-                    attributes: ['id', 'first_name', 'last_name', 'currency', 'verified', 'verificationSent']
-                })
-                    .then(userData => {
-                        const user = userData.get({ plain: true });
-                        if (user.verified === 0) {
-                            verified = false;
-                        }
-                        verificationSent = user.verificationSent;
-                    });
-            } else {
-                products = productData.map(product => product.get({ plain: true }));
-                verified = products[0].user.verified;
-                verificationSent = products[0].user.verificationSent;
+            if (user.verified === 0) {
+                verified = false;
             }
-            res.render("profile", { products, verificationSent, verified, loggedIn: true });
+            const verificationSent = user.verificationSent;
+
+            Product.findAll({
+                where: {
+                    user_id: req.session.user_id
+                },
+                attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id', 'shipping_id', 'stock', 'length', 'width', 'height', 'dimension_units', 'weight', 'weight_units'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['id', 'first_name', 'last_name', 'currency', 'verified', 'verificationSent']
+                    },
+                    {
+                        model: Category,
+                        attributes: ['id', 'category_name']
+                    },
+                    {
+                        model: ShippingProvider,
+                        attributes: ['id', 'shipping_name']
+                    },
+                    {
+                        model: Tag,
+                        attributes: ['id', 'name'],
+                        through: ProductTag,
+                        as: 'tags'
+                    }
+                ]
+            })
+                .then(productData => {
+                    products = productData.map(product => product.get({ plain: true }));
+                    res.render("profile", { products, verificationSent, verified, loggedIn: true });
+                });
+                
         })
         .catch(err => {
             console.log(err)
