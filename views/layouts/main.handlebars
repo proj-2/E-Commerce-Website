@@ -19,12 +19,13 @@
       <image src="/images/dEv-Commerce_logo.png" alt="dEv Commerce application's logo"></image>
     </a>
     <nav class="py-1 md:py-2">
-      <a href="/profile" class="mx-1 md:mx-2">My Profile</a>
       {{#if loggedIn}}
+      <a href="/profile" class="mx-1 md:mx-2">My Profile</a>
       <a href="/order" class="mx-1 md:mx-2">My Orders</a>
       <a href="/wishlist" class="mx-1 md:mx-2">Wishlist</a>
       <button id="logoutBtn" class="mx-1 md:mx-2">Logout</button>
       {{else}}
+      <a href="/login" class="mx-1 md:mx-2">My Profile</a>
       <a href="/login" class="mx-1 md:mx-2">Login</a>
       {{/if}}
     </nav>

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("../models/");
 
 const validation = require("../utils/validation")
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 router.get('/', validation, (req, res) => {
@@ -34,12 +34,30 @@ router.get('/', validation, (req, res) => {
         ]
     })
         .then(productData => {
-            const products = productData.map(product => product.get({ plain: true }))
-            const verified = products[0].user.verified
-            const verificationSent = products[0].user.verificationSent
-            console.log(verificationSent)
-            console.log(verified)
-            res.render("profile", { products, verificationSent, verified, loggedIn: true })
+            let products;
+            let verified;
+            let verificationSent;
+
+            if (productData = []) {
+                User.findOne({
+                    where: {
+                        id: req.session.user_id
+                    },
+                    attributes: ['id', 'first_name', 'last_name', 'currency', 'verified', 'verificationSent']
+                })
+                    .then(userData => {
+                        const user = userData.get({ plain: true });
+                        if (user.verified === 0) {
+                            verified = false;
+                        }
+                        verificationSent = user.verificationSent;
+                    });
+            } else {
+                products = productData.map(product => product.get({ plain: true }));
+                verified = products[0].user.verified;
+                verificationSent = products[0].user.verificationSent;
+            }
+            res.render("profile", { products, verificationSent, verified, loggedIn: true });
         })
         .catch(err => {
             console.log(err)
