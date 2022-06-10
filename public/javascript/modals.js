@@ -4,4 +4,5 @@ const info = document.querySelector('#info-modal');
 const modalOk = () => {
     err.classList.add('invisible');
     info.classList.add('invisible');
+    conf.classList.add('invisible');
 };
