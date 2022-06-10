@@ -1,17 +1,25 @@
-async function logoutFormHandler(event) {
+// logout function
+async function logout(event) {
     event.preventDefault();
 
+    const modal = document.querySelector('#err-modal');
+    const modal_title = document.querySelector('#err-title');
+    const err_msg = document.querySelector('#err-msg');
 
-    const logout = await fetch("/api/user/logout", {
+    // fetch logout api to let user logout
+    const response = await fetch("/api/user/logout", {
         method: 'post',
         headers: { 'Content-Type': 'application/json' }
-    })
+    });
 
-    if (logout.ok) {
-        document.location.replace('/')
+    // if the response is ok, go to homepage
+    if (response.ok) {
+        document.location.replace('/');
     } else {
-        alert("Please try to logout again")
+        modal.classList.remove('invisible');
+        modal_title.innerHTML = 'Logout Failed';
+        err_msg.innerHTML = 'Please try to logout again.';
     }
 }
 
-document.querySelector('#logoutBtn').addEventListener('click', logoutFormHandler);
+document.querySelector('#logoutBtn').addEventListener('click', logout);
