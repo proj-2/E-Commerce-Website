@@ -2,6 +2,10 @@ async function addWishlist(event) {
     event.preventDefault();
 
     const product_id = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
+
+    const modal = document.querySelector('#info-modal');
+    const modal_title = document.querySelector('#info-title');
+
     const response = await fetch("/api/user/wishlist", {
         method: 'post',
         body: JSON.stringify({
@@ -11,8 +15,8 @@ async function addWishlist(event) {
     });
 
     if (response.ok) {
-        document.location.replace("/search");
-        alert("Added to wishlist!");
+        modal.classList.remove('invisible');
+        modal_title.innerHTML = 'The item is added to your wishlist.';
     } else {
         alert(response.statusText);
     }

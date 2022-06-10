@@ -1,7 +1,7 @@
-const modal = document.querySelector('#err-modal');
-const modal_title = document.querySelector('#modal-title');
-const err_msg = document.querySelector('#err-msg');
+const err = document.querySelector('#err-modal');
+const info = document.querySelector('#info-modal');
 
 const modalOk = () => {
-    modal.classList.add('invisible');
+    err.classList.add('invisible');
+    info.classList.add('invisible');
 };

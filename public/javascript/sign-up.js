@@ -9,7 +9,7 @@ async function signUpFormHandler(event) {
   const currency = document.querySelector('#preferred-currency-signup').value.trim();
 
   const modal = document.querySelector('#err-modal');
-  const modal_title = document.querySelector('#modal-title');
+  const modal_title = document.querySelector('#err-title');
   const err_msg = document.querySelector('#err-msg');
 
   if (!first_name || !last_name || !email || !password || !repassword || !currency) {

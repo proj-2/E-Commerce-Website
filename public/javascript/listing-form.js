@@ -39,7 +39,7 @@ async function listingForm(event) {
     console.log(tag_id)
 
     const modal = document.querySelector('#err-modal');
-    const modal_title = document.querySelector('#modal-title');
+    const modal_title = document.querySelector('#err-title');
     const err_msg = document.querySelector('#err-msg');
 
     if (!name || !description || !price || !SKU || !origin || !category_id || !shipping_id || !stock || tag_id.length === 0) {
