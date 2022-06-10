@@ -16,7 +16,7 @@ async function verifyUser(event) {
         const response = await fetch('/profile/verify', {
             method: 'POST',
             body: JSON.stringify({
-                "user-email": document.querySelector("#user-email").value
+                "text": document.querySelector("#user-email-text").value
             }),
             headers: { 'Content-Type': 'application/json' }
         });

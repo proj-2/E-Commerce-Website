@@ -3,12 +3,14 @@
 
     <section class="mt-3">
         <div>
+            <h3>Verification Status</h3>
             {{#if verified}}
             <i class="fa-solid fa-check">Verified</i>
             {{else if verificationSent}}
             <i class="fa-solid fa-clock">Verification Status Pending</i>
             {{else}}
-            <input type="text" id="user-email" value="{{user.email}}" />
+            <p>Enter a message to send to the dEv Commerce Team</p>
+            <input type="text" id="user-email-text" value="{{user.email-text}}" placeholder="Enter Message" />
             <button id="verifyUser">Verify</button>
             {{/if}}
         </div>

@@ -75,35 +75,49 @@ router.get("/listItem", validation, (req, res) => {
 
 
 router.post("/verify", validation, (req, res) => {
+    console.log(req.body)
 
-    async function verificationEmail() {
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: ['id', 'first_name', 'last_name', 'email']
+    })
+        .then(userData => {
+            const user = userData.get({ plain: true });
+            console.log(user.email, user.first_name, user.last_name)
+            async function verificationEmail() {
 
-        let transporter = nodemailer.createTransport({
-            host: "smtp-mail.outlook.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.EMAIL,
-                pass: process.env.EMAIL_PW,
-            },
-            tls: {
-                ciphers: 'SSLv3'
+                let transporter = nodemailer.createTransport({
+                    host: "smtp-mail.outlook.com",
+                    port: 587,
+                    secure: false,
+                    auth: {
+                        user: process.env.EMAIL,
+                        pass: process.env.EMAIL_PW,
+                    },
+                    tls: {
+                        ciphers: 'SSLv3'
+                    }
+                });
+
+                let info = await transporter.sendMail({
+                    from: process.env.EMAIL,
+                    to: process.env.EMAIL,
+                    subject: `${user.first_name} ${user.last_name
+                        }, email: ${user.email}`,
+                    text: "I would like to verify my account on dEv Commerce.",
+                    html: `${req.body.text}`,
+                });
+
+                console.log("Message sent: %s", info.messageId);
+
+                console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
             }
-        });
+            verificationEmail();
+        })
 
-        let info = await transporter.sendMail({
-            from: process.env.EMAIL,
-            to: process.env.EMAIL,
-            subject: "Requesting Account Verification",
-            text: "I would like to verify my account on dEv Commerce.",
-            html: "I would like to verify my account on dEv Commerce.",
-        });
 
-        console.log("Message sent: %s", info.messageId);
-
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    }
-    verificationEmail();
 });
 
 module.exports = router
