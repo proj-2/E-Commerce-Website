@@ -1,37 +1,63 @@
 async function checkoutFormHandler(event) {
   event.preventDefault();
-  const ccNumberCheckout = document.querySelector('#cc-number-checkout').value.trim();
-  const expCheckout = document.querySelector('#exp-checkout').value.trim();
-  const cvcCheckout = document.querySelector('#cvc-checkout').value.trim();
-  const streetAddressCheckout = document.querySelector('#ship-street-checkout').value.trim();
-  const postalCodeCheckout = document.querySelector('#ship-postcode-checkout').value.trim();
-  const provinceCheckout = document.querySelector('#ship-province-checkout').value.trim();
-  const countryCheckout = document.querySelector('#ship-country-checkout').value.trim();
-  const unitCheckout = document.querySelector('#ship-unit-checkout').value.trim();
+  const ccNumber = document.querySelector('#cc-number-checkout').value.trim();
+  const expiry = document.querySelector('#exp-checkout').value.trim();
+  const cvc = document.querySelector('#cvc-checkout').value.trim();
 
-  if (ccNumberCheckout.length !== 16 || cvcCheckout.length !== 3 || !expCheckout) {
-    alert("Please enter a valid credit card information")
-  }
+  const streetAddress = document.querySelector('#ship-street-checkout').value.trim();
+  const postalCode = document.querySelector('#ship-postcode-checkout').value.trim();
+  const province = document.querySelector('#ship-province-checkout').value.trim();
+  const country = document.querySelector('#ship-country-checkout').value.trim();
+  const unit = document.querySelector('#ship-unit-checkout').value.trim();
 
-  if (!streetAddressCheckout || !postalCodeCheckout || !provinceCheckout || !countryCheckout) {
-    alert("Please enter your shipping address")
-  }
+  const billStreetAddress = document.querySelector('#bill-street-checkout').value.trim();
+  const billPostalCode = document.querySelector('#ship-postcode-checkout').value.trim();
+  const billProvince = document.querySelector('#ship-province-checkout').value.trim();
+  const billCountry = document.querySelector('#ship-country-checkout').value.trim();
+  const billUnit = document.querySelector('#ship-unit-checkout').value.trim();
 
-  const response = await fetch("api/user/history", {
-    method: 'post',
-    body: JSON.stringify({
-      ccNumberCheckout
-    }),
-    headers: { 'Content-Type': 'application/json' }
-  })
+  const checkbox = document.querySelector("#confirm-bill-address");
 
-  if (response.ok) {
-    document.location.replace("/order-history")
-    alert("Order added!")
+  const err_modal = document.querySelector('#err-modal');
+  const err_title = document.querySelector('#err-title');
+  const err_msg = document.querySelector('#err-msg');
+
+  if (ccNumber.length !== 16 || cvc.length !== 3 || !expiry) {
+    err_modal.classList.remove('invisible');
+    err_title.innerHTML = 'Invalid information';
+    err_msg.innerHTML = 'Please enter a valid credit card information.';
+  } else if (!streetAddress || !postalCode || !province || !country) {
+    err_modal.classList.remove('invisible');
+    err_title.innerHTML = 'Invalid information';
+    err_msg.innerHTML = 'Please enter your shipping address';
+  } else if (!checkbox.checked) {
+    if (!billStreetAddress || !billPostalCode || !billProvince || !billCountry) {
+      err_modal.classList.remove('invisible');
+      err_title.innerHTML = 'Invalid information';
+      err_msg.innerHTML = "Please enter your billing address or check the 'Same as shipping address'";
+    }
   } else {
-    alert(response.statusText)
-  }
+    const info_modal = document.querySelector('#info-modal');
+    const info_title = document.querySelector('#info-title');
+    const info_msg = document.querySelector('#info-msg');
+    const total_price = document.querySelector('.totalPrice').innerHTML;
 
+    const response = await fetch("api/user/history", {
+      method: 'post',
+      body: JSON.stringify({
+        ccNumber
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+      info_modal.classList.remove('invisible');
+      info_title.innerHTML = 'Checkout processed';
+      info_msg.innerHTML = `Thank you for your purchase. We have successfully processed the checkout.\ ${total_price}`;
+    } else {
+      alert(response.statusText);
+    }
+  }
 }
 
 async function billingAddress() {
