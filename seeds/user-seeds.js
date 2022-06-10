@@ -20,7 +20,7 @@ const userData = [
         last_name: 'Mcdonalid',
         email: 'frederick.mcdonalid@example.com',
         password: 'mcdonalid',
-        currency: 'GBP'
+        currency: 'CAD'
     },
     {
         first_name: 'Siusan',
@@ -62,7 +62,7 @@ const userData = [
         last_name: 'Brafield',
         email: 'brafield@example.com',
         password: 'brafield',
-        currency: 'GBP'
+        currency: 'CAD'
     },
     {
         first_name: 'Britt',

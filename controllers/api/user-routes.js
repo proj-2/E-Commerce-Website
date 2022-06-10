@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order, Wishlist } = require("../../models");
+const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order, Wishlist, History } = require("../../models");
 
 const validation = require("../../utils/validation")
 
@@ -80,6 +80,45 @@ router.post("/order", validation, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+})
+
+router.post("/history", validation, (req, res) => {
+    Order.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: ['product_id', 'user_id']
+    })
+        .then(orderData => {
+            const orders = orderData.map(order => order.get({ plain: true }));
+
+            for (let i = 0; i < orders.length; i++) {
+                History.create({
+                    product_id: orders[i].product_id,
+                    user_id: req.session.user_id
+                })
+                    .then(initialHistoryData => {
+                        History.findAll({
+                            where: {
+                                user_id: req.session.user_id
+                            },
+                            attributes: ['product_id', 'user_id']
+                        })
+                            .then(historyData => {
+                                const histories = historyData.map(history => history.get({ plain: true }))
+                                console.log(histories)
+                                res.render('order-history')
+                            })
+                            .then(data => {
+                                Order.destroy({
+                                    where: {
+                                        user_id: req.session.user_id
+                                    }
+                                })
+                            })
+                    })
+            }
+        })
 })
 
 router.post('/', (req, res) => {

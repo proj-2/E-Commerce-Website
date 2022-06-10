@@ -6,6 +6,7 @@ const seedProductTags = require("./product-tag-seeds")
 const seedShipping = require("./shippingprovider-seeds")
 const seedOrder = require("./order-seeds")
 const seedWishlist = require("./wishlist-seeds");
+const seedHistory = require("./history-seeds")
 
 const sequelize = require("../config/connection");
 
@@ -27,6 +28,8 @@ const seedAll = async () => {
     await seedProductTags();
 
     await seedWishlist();
+
+    await seedHistory();
 
     process.exit(0);
 }

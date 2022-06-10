@@ -9,12 +9,25 @@ async function checkoutFormHandler(event) {
   const countryCheckout = document.querySelector('#ship-country-checkout').value.trim();
   const unitCheckout = document.querySelector('#ship-unit-checkout').value.trim();
 
-  if (ccNumberCheckout.length !== 16 || cvcCheckout.length !== 3 || !expCheckout) {
-    alert("Please enter a valid credit card information")
-  }
+  // if (ccNumberCheckout.length !== 16 || cvcCheckout.length !== 3 || !expCheckout) {
+  //   alert("Please enter a valid credit card information")
+  // }
 
-  if (!streetAddressCheckout || !postalCodeCheckout || !provinceCheckout || !countryCheckout) {
-    alert("Please enter your shipping address")
+  // if (!streetAddressCheckout || !postalCodeCheckout || !provinceCheckout || !countryCheckout) {
+  //   alert("Please enter your shipping address")
+  // }
+
+  const response = await fetch("api/user/history", {
+    method: 'post',
+    body: JSON.stringify({}),
+    headers: { 'Content-Type': 'application/json' }
+  })
+
+  if (response.ok) {
+    document.location.replace("/order-history")
+    alert("Items Ordered")
+  } else {
+    alert(response.statusText)
   }
 
 }
