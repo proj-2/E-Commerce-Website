@@ -30,7 +30,7 @@ History.init(
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         underscored: true,
         freezeTableName: true,
         modelName: 'history'

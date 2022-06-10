@@ -19,13 +19,15 @@ async function checkoutFormHandler(event) {
 
   const response = await fetch("api/user/history", {
     method: 'post',
-    body: JSON.stringify({}),
+    body: JSON.stringify({
+      ccNumberCheckout
+    }),
     headers: { 'Content-Type': 'application/json' }
   })
 
   if (response.ok) {
     document.location.replace("/order-history")
-    alert("Items Ordered")
+    alert("Order added!")
   } else {
     alert(response.statusText)
   }

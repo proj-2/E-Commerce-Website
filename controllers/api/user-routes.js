@@ -90,6 +90,7 @@ router.post("/history", validation, (req, res) => {
         attributes: ['product_id', 'user_id']
     })
         .then(orderData => {
+            res.json(orderData)
             const orders = orderData.map(order => order.get({ plain: true }));
 
             for (let i = 0; i < orders.length; i++) {
@@ -98,6 +99,7 @@ router.post("/history", validation, (req, res) => {
                     user_id: req.session.user_id
                 })
                     .then(initialHistoryData => {
+                        console.log(initialHistoryData)
                         History.findAll({
                             where: {
                                 user_id: req.session.user_id
@@ -107,14 +109,17 @@ router.post("/history", validation, (req, res) => {
                             .then(historyData => {
                                 const histories = historyData.map(history => history.get({ plain: true }))
                                 console.log(histories)
-                                res.render('order-history')
                             })
                             .then(data => {
+                                console.log(data)
                                 Order.destroy({
                                     where: {
                                         user_id: req.session.user_id
                                     }
                                 })
+                                    .then(orderData => {
+                                        console.log(orderData)
+                                    })
                             })
                     })
             }

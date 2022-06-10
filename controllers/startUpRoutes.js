@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order } = require("../models/");
+const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order, History } = require("../models/");
 
 const validation = require("../utils/validation")
 
@@ -235,6 +235,47 @@ router.post("/orderDelete", (req, res) => {
         .catch(err => {
             console.log(err)
             res.status(500).json(err)
+        })
+})
+
+router.get("/order-history", validation, (req, res) => {
+    User.findAll({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: ['id', 'email'],
+        include: {
+            model: Product,
+            attributes: ['id', 'name', 'description', 'price', 'SKU', 'origin', 'category_id', 'user_id', 'shipping_id', 'stock', 'length', 'width', 'height', 'dimension_units', 'weight', 'weight_units'],
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'first_name', 'last_name', 'currency']
+                },
+                {
+                    model: Category,
+                    attributes: ['id', 'category_name']
+                },
+                {
+                    model: ShippingProvider,
+                    attributes: ['id', 'shipping_name']
+                },
+                {
+                    model: Tag,
+                    attributes: ['id', 'name'],
+                    through: ProductTag,
+                    as: 'tags'
+                }
+            ],
+            through: History,
+            as: 'product_history'
+        }
+    })
+        .then(historyData => {
+            const initialHistoryData = historyData.map(history => history.get({ plain: true }))
+            const history = initialHistoryData[0].product_history
+            console.log(history)
+            res.render('order-history', { loggedIn: req.session.loggedIn, history })
         })
 })
 
