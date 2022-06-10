@@ -5,7 +5,7 @@
         <div>
             {{#if verified}}
             <i class="fa-solid fa-check">Verified</i>
-            {{else verificationSent}}
+            {{else if verificationSent}}
             <i class="fa-solid fa-clock">Verification Status Pending</i>
             {{else}}
             <input type="text" id="user-email" value="{{user.email}}" />
@@ -41,7 +41,7 @@
 
 {{#if verified}}
 
-{{else if verifcationSent}}
+{{else if verificationSent}}
 
 {{else}}
 <script src="/javascript/verification.js"></script>

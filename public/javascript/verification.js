@@ -10,26 +10,25 @@ async function verifyUser(event) {
     })
 
     if (updateVerification.ok) {
-        console.log("verification status updated")
         window.location.reload();
+        console.log("verification status updated")
+        //make ajax POST call to route "/profile/verify"
+        const response = await fetch('/profile/verify', {
+            method: 'POST',
+            body: JSON.stringify({
+                "user-email": document.querySelector("#user-email").value
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            alert('email was sent');
+        } else {
+            alert(response.statusText);
+        }
     }
-
-    // //make ajax POST call to route "/profile/verify"
-    // const response = await fetch('/profile/verify', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         "user-email": document.querySelector("#user-email").value
-    //     }),
-    //     headers: { 'Content-Type': 'application/json' }
-    // });
-
-    // if (response.ok) {
-    //     alert('email was sent');
-    //     window.location.reload();
-    // } else {
-    //     alert(response.statusText);
-    // }
 }
+
 
 
 document.querySelector("#verifyUser").addEventListener("click", verifyUser);
