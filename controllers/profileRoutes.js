@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Product, Category, Tag, ShippingProvider, ProductTag } = require("../models/");
 
 const validation = require("../utils/validation")
-// const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 router.get('/', validation, (req, res) => {
@@ -53,7 +53,7 @@ router.get('/', validation, (req, res) => {
                     products = productData.map(product => product.get({ plain: true }));
                     res.render("profile", { products, verificationSent, verified, loggedIn: true });
                 });
-                
+
         })
         .catch(err => {
             console.log(err)
@@ -76,39 +76,50 @@ router.get("/listItem", validation, (req, res) => {
 });
 
 
-// router.post("/verify", validation, (req, res) => {
-//     //verify email params
+router.post("/verify", validation, (req, res) => {
+    console.log(req.body)
+
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: ['id', 'first_name', 'last_name', 'email']
+    })
+        .then(userData => {
+            const user = userData.get({ plain: true });
+            console.log(user.email, user.first_name, user.last_name)
+            async function verificationEmail() {
+
+                let transporter = nodemailer.createTransport({
+                    host: "smtp-mail.outlook.com",
+                    port: 587,
+                    secure: false,
+                    auth: {
+                        user: process.env.EMAIL,
+                        pass: process.env.EMAIL_PW,
+                    },
+                    tls: {
+                        ciphers: 'SSLv3'
+                    }
+                });
+
+                let info = await transporter.sendMail({
+                    from: process.env.EMAIL,
+                    to: process.env.EMAIL,
+                    subject: `${user.first_name} ${user.last_name
+                        }, email: ${user.email}`,
+                    text: "I would like to verify my account on dEv Commerce.",
+                    html: `${req.body.text}`,
+                });
+
+                console.log("Message sent: %s", info.messageId);
+
+                console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+            }
+            verificationEmail();
+        })
 
 
-//     //send email
-//     var transporter = nodemailer.createTransport({
-//         service: 'gmail',
-//         auth: {
-//             user: process.env.EMAIL,
-//             pass: process.env.EMAIL_PW
-//         }
-//     });
-
-//     var mailOptions = {
-//         from: 'youremail@gmail.com',
-//         to: process.env.EMAIL,
-//         subject: 'Sending Email using Node.js',
-//         text: '<a href="localhost/verify?id=[HASH]&email=user@address.com">Verify</a>'
-//     };
-
-//     transporter.sendMail(mailOptions, function (error, info) {
-//         if (error) {
-//             console.log(error);
-//         } else {
-//             console.log('Email sent: ' + info.response);
-//         }
-//     });
-
-//     //update user.verificationSent = HASH (random 16bit string)
-//     //include string in link ie. localhost/verify?id=[HASH]&email=user@address.com
-//     //use params to search db
-//     //set verified = true for first found item
-
-// });
+});
 
 module.exports = router

@@ -23,7 +23,20 @@
     margin-bottom: 10px;
 }
 
-.checkout-form, #listItemForm {
+.checkout-form,
+#listItemForm {
     border: 2px solid black;
     padding: 5px;
+}
+
+.verificationForm h3 {
+    font-size: 25px;
+}
+
+.verificationForm p {
+    font-size: 20px;
+}
+
+.profileTitle {
+    text-align: center;
 }
