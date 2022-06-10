@@ -38,8 +38,22 @@ async function listingForm(event) {
     }
     console.log(tag_id)
 
+    const modal = document.querySelector('#err-modal');
+    const modal_title = document.querySelector('#modal-title');
+    const err_msg = document.querySelector('#err-msg');
+
     if (!name || !description || !price || !SKU || !origin || !category_id || !shipping_id || !stock || tag_id.length === 0) {
-        alert("Please enter all fields that are required")
+        modal.classList.remove('invisible');
+        modal_title.innerHTML = 'Invalid information';
+        err_msg.innerHTML = 'Please enter all fields that are required.';
+    } else if (description.length > 250) {
+        modal.classList.remove('invisible');
+        modal_title.innerHTML = 'Invalid information';
+        err_msg.innerHTML = 'Please write description within 250 characters.';
+    } else if (SKU.length > 10) {
+        modal.classList.remove('invisible');
+        modal_title.innerHTML = 'Invalid information';
+        err_msg.innerHTML = 'SKU must be within 9 digits.';
     } else {
         if (length === '') {
             const response = await fetch("/api/product", {
