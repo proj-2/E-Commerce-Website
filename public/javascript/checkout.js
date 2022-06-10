@@ -54,7 +54,6 @@ async function checkoutFormHandler(event) {
       info_modal.classList.remove('invisible');
       info_title.innerHTML = 'Checkout processed';
       info_msg.innerHTML = `Thank you for your purchase. We have successfully processed the checkout.\ ${total_price}`;
-      document.location.replace('/order-history')
     } else {
       alert(response.statusText);
     }
