@@ -1,7 +1,7 @@
 <div class="my-3 p-3">
-    <h2 class="text-3xl">My Profile</h2>
+    <h2 class="text-3xl profileTitle">My Profile</h2>
 
-    <section class="mt-3">
+    <section class="mt-3 verificationForm">
         <div>
             <h3>Verification Status</h3>
             {{#if verified}}
@@ -9,9 +9,10 @@
             {{else if verificationSent}}
             <i class="fa-solid fa-clock">Verification Status Pending</i>
             {{else}}
-            <p>Enter a message to send to the dEv Commerce Team</p>
+            <p>Enter a message to send to the dEv Commerce Team:</p>
             <input type="text" id="user-email-text" value="{{user.email-text}}" placeholder="Enter Message" />
-            <button id="verifyUser">Verify</button>
+            <button id="verifyUser"
+                class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Verify</button>
             {{/if}}
         </div>
     </section>
