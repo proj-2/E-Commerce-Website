@@ -2,6 +2,7 @@
 async function logout(event) {
     event.preventDefault();
 
+    // get modal elements
     const modal = document.querySelector('#err-modal');
     const modal_title = document.querySelector('#err-title');
     const err_msg = document.querySelector('#err-msg');
