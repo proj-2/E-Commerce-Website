@@ -1,4 +1,5 @@
 # E-Commerce-Website
+
 A full stack E-commerce application
 
 ## Contibutors:
@@ -21,7 +22,7 @@ A full stack E-commerce application
 
 ## Links
 
-- Deployed application: 
+- Deployed application:
 - Github repository: [https://github.com/proj-2/E-Commerce-Website](https://github.com/proj-2/E-Commerce-Website)
 - Presentation - [https://prezi.com/view/CzreEgGWKMht88IZr6bg/](https://prezi.com/view/CzreEgGWKMht88IZr6bg/)
 
@@ -30,22 +31,25 @@ A full stack E-commerce application
 dEv-Commerce is a platform connecting developers and companies together in a single marketplace. It takes the work out of developers trying to find customers and manage their products. dEv-Commerce is also a brand name that can be expanded to provide in-house products.
 
 This will achieve:
-* Subsidizing costs
-* Product standards
-     * Quality
-     * Price
-     * Reliability
+
+- Subsidizing costs
+- Product standards
+  - Quality
+  - Price
+  - Reliability
 
 Technologies used include:
 
-- [Stripe API](https://dashboard.stripe.com/test/dashboard)
+- [API](https://rapidapi.com/exchangerateapi/api/exchangerate-api/)
 - [Bootstrap](https://getbootstrap.com/)
-- [Tailwind](https://tailwindcss.com/) 
-- 
+- [Tailwind](https://tailwindcss.com/)
+- [JavaScript - Node.js](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs)
+- [Template Engine - Handlebars](https://handlebarsjs.com/guide/)
 
 ## Project Overview
 
 ### User Story
+
 ```
 AS a USER
 I WANT to create an account
@@ -68,7 +72,7 @@ SO THAT users can trust what they’re buying
 
 ```
 ACCEPTANCE TEST FOR USER STORY
- 
+
 GIVEN a set of links in a navigation bar
 WHEN I click on a link
 THEN I should go to the appropriate web page that is described by the link.
@@ -91,3 +95,11 @@ GIVEN a verification system
 WHEN I submit a verification form
 THEN I can be given a verification status
 ```
+
+![](</public/images/2022-06-07%20(1).png>)
+![](</public/images/2022-06-11%20(8).png>)
+![](</public/images/2022-06-11%20(4).png>)
+![](</public/images/2022-06-11%20(5).png>)
+![](</public/images/2022-06-11%20(7).png>)
+![](</public/images/2022-06-07%20(3).png>)
+![](/public/images/2022-06-07.png)
