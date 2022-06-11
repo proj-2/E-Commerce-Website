@@ -2,12 +2,6 @@
     margin-top: 5px;
 }
 
-#footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 .hidden {
     display: none;
 }
@@ -23,20 +17,7 @@
     margin-bottom: 10px;
 }
 
-.checkout-form,
-#listItemForm {
+.checkout-form {
     border: 2px solid black;
     padding: 5px;
-}
-
-.verificationForm h3 {
-    font-size: 25px;
-}
-
-.verificationForm p {
-    font-size: 20px;
-}
-
-.profileTitle {
-    text-align: center;
 }

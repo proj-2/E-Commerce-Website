@@ -1,5 +1,5 @@
 <div class="my-3 p-3 grid grid-cols-12">
-    <div class="col-span-12 sm:col-span-3 lg:col-span-2 grid-cols-2">
+    <div class="col-span-12 sm:col-span-3 grid-cols-2">
         <h2 class="text-3xl">My Orders</h2>
         {{#if orders.length}}
         <div class="invisible sm:visible sm:ml-1 sm:mt-3">
@@ -15,8 +15,10 @@
             {{#each orders as |order|}}
             <li id="orderList" class="grid grid-cols-12 p-1 mb-3 bg-white border border-slate-200">
                 {{>order-partial order}}
-                <div class="col-span-12 sm:col-span-1 self-center mx-auto sm:mx-0">
-                    <button id="orderDeleteBtn" data-id="{{id}}" class="px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-rose-600 hover:text-rose-200">Remove Item</button>
+                <div class="col-span-12 sm:col-span-2 lg:col-span-1 self-start sm:self-center m-2 sm:m-0">
+                    <button id="orderDeleteBtn" data-id="{{id}}" class="px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-rose-600 hover:text-rose-200">
+                        Remove Item
+                    </button>
                 </div>
             </li>
             {{/each}}
@@ -26,7 +28,7 @@
         {{/if}}
     </section>
     {{#if orders.length}}
-    <div class="col-span-12 visible sm:invisible">
+    <div class="col-span-12 my-5 visible sm:invisible">
         <a href="/checkout" class="ml-1 bg-stone-200 px-3 py-1.5 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
             Proceed to checkout
         </a>

@@ -1,7 +1,7 @@
 <div class="my-3 sm:my-3 px-1 sm:p-3">
-  <button id="goBackButton"
-    class="px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-sky-900 hover:text-sky-200">Return to
-    Search Results</button>
+  <button id="goBackButton" class="px-3 py-1 bg-stone-200 text-stone-900 rounded hover:bg-sky-900 hover:text-sky-200">
+    Return to Search Results
+  </button>
   <section class="bg-sky-100 mt-1 lg:mt-4">
     {{#if products.length}}
     <ul class="existingListings p-2 sm:p-3">
@@ -9,12 +9,14 @@
       <li class="p-1 sm:p-3 mb-3 bg-white border border-slate-200">
         {{> product product}}
         {{#if loggedIn}}
-        <button id="addWishlistBtn" class="px-3 py-1 text-pink-600 rounded hover:scale-125 hover:text-rose-600">
+        <div class="flex justify-end lg:justify-start">
+          <button id="addWishlistBtn" class="px-3 py-1 text-pink-600 rounded hover:scale-125 hover:text-rose-600">
             <i class="fa-regular fa-heart"></i>
-        </button>
-        <button id="orderProductBtn" class="px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-sky-900 hover:text-sky-200">
-            Order Product
-        </button>
+          </button>
+          <button id="orderProductBtn" class="px-3 py-1 bg-stone-400 text-stone-900 rounded hover:bg-sky-900 hover:text-sky-200">
+              Order Product
+          </button>
+        </div>
         {{/if}}
       </li>
       {{/each}}

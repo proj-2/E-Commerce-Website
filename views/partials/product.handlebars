@@ -5,7 +5,9 @@
     <div class="lg:col-span-8 py-2 px-4 text-sky-900">
         <h3 class="text-2xl sm:text-3xl mt-1 mb-3">{{name}}</h3>
         <p class="text-lg sm:text-xl mt-1">{{description}}</p>
-        <p class="text-lg sm:text-xl mt-1">Listed By : {{user.first_name}} {{user.last_name}}</p>
+        <p class="text-lg sm:text-xl mt-1">
+            Listed By : {{user.first_name}} {{user.last_name}}
+        </p>
         {{#if curRate}}
         <p class="text-2xl sm:text-3xl mt-3">{{cur_convert price curRate}} {{currency}}</p>
         {{else}}
@@ -17,21 +19,27 @@
             <p class="mt-1">Shipping From: {{origin}}</p>
             <p class="mt-1">Stock: {{stock}} remaining</p>
             {{#if length}}
-            <p class="mt-1"> Product Dimensions (L x W x H):
-                {{length}} {{dimension_units}} X {{width}} {{dimension_units}} X {{height}} {{dimension_units}}</p>
+            <p class="mt-1">
+                Product Dimensions (L x W x H):
+                {{length}} {{dimension_units}} X {{width}} {{dimension_units}} X {{height}} {{dimension_units}}
+            </p>
             <p class="mt-1">Product Weight: {{weight}} {{weight_units}}</p>
             {{/if}}
             <div class="mt-1">
                 <p>Category:</p>
                 <div class="m-2">
-                    <a href="/search/category/{{category.id}}" class="italic underline text-blue-800">{{category.category_name}}</a>
+                    <a href="/search/category/{{category.id}}" class="italic underline text-blue-800">
+                        {{category.category_name}}
+                    </a>
                 </div>
             </div>
             <div class="mt-1">
                 <p>Tags:</p>
                 {{#each tags}}
                 <div class="m-2">
-                    <a href="/search/tag/{{id}}" class="italic underline text-blue-800">{{name}}</a>
+                    <a href="/search/tag/{{id}}" class="italic underline text-blue-800">
+                        {{name}}
+                    </a>
                 </div>
                 {{/each}}
             </div>
