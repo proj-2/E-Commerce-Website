@@ -9,6 +9,5 @@
     <p>Price: {{price}} {{user.currency}}</p>
     {{/if}}
     <p>Shipping Provider: {{shipping_provider.shipping_name}}</p>
-    <p>Product ID: {{id}}</p>
-    <p>Ordered at: {{history.createdAt}}</p>
+    <p>Ordered at: {{format_date history.createdAt}}</p>
 </div>
