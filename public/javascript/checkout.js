@@ -54,7 +54,7 @@ async function checkoutFormHandler(event) {
     const info_title = document.querySelector('#info-title');
     const info_msg = document.querySelector('#info-msg');
     // get total price value
-    const total_price = document.querySelector('.totalPrice').innerHTML;
+    const total_price = document.querySelector('#total-price').innerHTML;
 
     // CHECKOUT AND SHIPPING FUNCTION GO HERE
 
@@ -95,4 +95,4 @@ async function billingAddress() {
   }
 }
 
-document.querySelector('.checkout-form').addEventListener('submit', checkoutFormHandler);
+document.querySelector('#checkoutForm').addEventListener('submit', checkoutFormHandler);

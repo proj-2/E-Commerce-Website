@@ -1,7 +1,7 @@
 <div class="my-3 p-3">
     <h2 class="text-3xl text-center">My Profile</h2>
 
-    <section class="mt-4 mb-6 verificationForm mx-3 sm:mx-0">
+    <section class="mt-4 mb-6 mx-3 sm:mx-0">
         <h3 class="text-2xl my-2">Verification Status</h3>
         {{#if verified}}
         <i class="fa-solid fa-check">Verified</i>
@@ -11,7 +11,7 @@
         <div class="sm:mx-3">
             <p class="text-lg">Enter a message to send to the dEv Commerce Team:</p>
             <input type="text" id="user-email-text" value="{{user.email-text}}" placeholder="Enter Message" />
-            <button id="verifyUser" class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
+            <button id="verifyUser" type="button" class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
                 Verify
             </button>
         </div>
@@ -28,7 +28,7 @@
     <section class="mt-4 mx-3 sm:mx-0">
         <h3 class="text-2xl my-2">My Existing Listings</h3>
         {{#if products.length}}
-        <ul class="existingListings p-2 sm:p-3 bg-sky-100">
+        <ul class="p-2 sm:p-3 bg-sky-100">
             {{#each products as |product|}}
             {{>result-list product}}
             {{/each}}

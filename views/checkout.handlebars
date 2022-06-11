@@ -1,6 +1,6 @@
-<h2 class="checkoutTitle">Checkout</h2>
+<h2 class="text-5xl text-center underline my-2">Checkout</h2>
 
-<p class="totalPrice ml-3">Your Total Price is: 
+<p id="total-price" class="text-2xl ml-3 mb-3">Your Total Price is: 
   {{#if curRate}}
     {{cur_convert price curRate}} {{currency}}</p>
   {{else}}
@@ -8,7 +8,7 @@
   {{/if}}
 </p>
 
-<form class="checkout-form mx-3 p-2">
+<form id="checkoutForm" class="border-2 border-black mx-3 p-2">
   <div class="mb-7">
     <h2>Credit Card Information:</h2>
     <div>
@@ -38,8 +38,9 @@
     </div>
   </div>
   <div class="mb-2">
-    <button type="submit" id="checkout-btn"
-      class="bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded mt-2">Checkout</button>
+    <button type="submit" class="bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded mt-2">
+      Checkout
+    </button>
   </div>
 </form>
 
