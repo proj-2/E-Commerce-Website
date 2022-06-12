@@ -8,7 +8,7 @@ async function deleteWishlistConf(event) {
   const ok_btn = document.querySelector('#conf-ok-btn');
 
   // get product id from the button element
-  const product_id = this.getAttribute('data-id');
+  const product_id = this.parentNode.parentNode.getAttribute('data-id');
 
   // pop up confirmation modal
   modal.classList.remove('invisible');

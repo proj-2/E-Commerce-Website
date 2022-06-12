@@ -1,16 +1,10 @@
 const router = require("express").Router();
-const {
-  User,
-  Product,
-  Category,
-  Tag,
-  ShippingProvider,
-  ProductTag,
-  Order,
-} = require("../models");
+const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order, History } = require("../models");
 
+// import validation function
 const validation = require("../utils/validation");
 
+// go to checkout page
 router.get("/", validation, (req, res) => {
   User.findAll({
     where: {
@@ -24,32 +18,20 @@ router.get("/", validation, (req, res) => {
       as: "product_order",
     },
   })
-    .then((orderData) => {
-      const initialOrderData = orderData.map((order) =>
-        order.get({ plain: true })
-      )[0].product_order;
+    .then(orderData => {
+      const orders = orderData.map((order) => order.get({ plain: true }))[0].product_order;
+      let totalPrice = 0;
 
-      const getCurrency = orderData.map((order) =>
-        order.get({ plain: true })
-      )
-
-      const orders = initialOrderData.map((order) => ({
-        ...order
-      }));
-
-      let totalPrice = 0
-
+      // get total price by adding up each product's price
       for (let i = 0; i < orders.length; i++) {
-        totalPrice += orders[i].price
-      }
+        totalPrice += orders[i].price;
+      };
 
-      // let price1 = totalPrice.toFixed(2)
-      let price = Number(totalPrice).toFixed(2)
-      let currency = getCurrency[0].currency
+      
+      // let price = Number(totalPrice).toFixed(2);
 
       res.render("checkout", {
-        currency,
-        price,
+        totalPrice,
         loggedIn: true,
         curRate: req.session.curRate,
         currency: req.session.currency

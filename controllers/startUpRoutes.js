@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     })
         .then(tagData => {
             const tags = tagData.map(tag => tag.get({ plain: true }))
-            res.render('search', { loggedIn: req.session.loggedIn, tags })
+            res.render('home', { loggedIn: req.session.loggedIn, tags })
 
         })
 })

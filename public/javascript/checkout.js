@@ -131,6 +131,4 @@ async function billingAddress() {
   }
 }
 
-document
-  .querySelector(".checkout-form")
-  .addEventListener("submit", checkoutFormHandler);
+document.querySelector('#checkoutForm').addEventListener('submit', checkoutFormHandler);
