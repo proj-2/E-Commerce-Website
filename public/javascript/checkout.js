@@ -72,6 +72,7 @@ async function checkoutFormHandler(event) {
     const validateAdd = await fetch("api/validateaddress", {
       method: "post",
       body: JSON.stringify({
+        
         unit,
         streetAddress,
         postalCode,
@@ -83,9 +84,8 @@ async function checkoutFormHandler(event) {
     if (validateAdd.ok) {
       console.log(validateAdd);
     } else {
-      alert(response.statusText);
+      alert(validateAdd.statusText);
     }
-    console.log(streetAddress);
     // get info modal elements
     //   const info_modal = document.querySelector("#info-modal");
     //   const info_title = document.querySelector("#info-title");

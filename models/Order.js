@@ -11,6 +11,10 @@ Order.init(
             primaryKey: true,
             autoIncrement: true
         },
+        validate_address: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

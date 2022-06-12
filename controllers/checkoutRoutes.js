@@ -19,7 +19,9 @@ router.get("/", validation, (req, res) => {
     },
   })
     .then(orderData => {
+      const data = orderData.map((order) => order.get({ plain: true }))[0];
       const orders = orderData.map((order) => order.get({ plain: true }))[0].product_order;
+      console.log(data);
       let totalPrice = 0;
 
       // get total price by adding up each product's price
