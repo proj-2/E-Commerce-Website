@@ -20,20 +20,23 @@ router.get("/", validation, (req, res) => {
   })
     .then(orderData => {
       // get product data
-      const products = orderData.map((order) => order.get({ plain: true }))[0].product_order;
-      
-      let totalPrice = 0
+      const initialOrderData = orderData.map((order) => order.get({ plain: true }));
+      const orders = initialOrderData[0].product_order;
+
+      let totalPrice = 0;
 
       // get total price by adding each product's price
-      for (let i = 0; i < products.length; i++) {
-        totalPrice += products[i].price;
+      for (let i = 0; i < orders.length; i++) {
+        totalPrice += orders[i].price;
       }
 
+      let price = Number(totalPrice).toFixed(2);
+      let currency = initialOrderData[0].currency;
+
       res.render("checkout", {
-        totalPrice,
+        currency,
+        price,
         loggedIn: true,
-        curRate: req.session.curRate,
-        currency: req.session.currency
       });
     })
     .catch((err) => {
