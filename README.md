@@ -22,7 +22,7 @@ A full stack E-commerce application
 
 ## Links
 
-- Deployed application:
+- Deployed application: [https://peaceful-fortress-78304.herokuapp.com/](https://peaceful-fortress-78304.herokuapp.com/)
 - Github repository: [https://github.com/proj-2/E-Commerce-Website](https://github.com/proj-2/E-Commerce-Website)
 - Presentation - [https://prezi.com/view/CzreEgGWKMht88IZr6bg/](https://prezi.com/view/CzreEgGWKMht88IZr6bg/)
 

@@ -83,7 +83,7 @@ async function checkoutFormHandler(event) {
     if (validateAdd.ok) {
       console.log(validateAdd);
     } else {
-      alert(response.statusText);
+      alert(validateAdd.statusText);
     }
     console.log(streetAddress);
     // get info modal elements
@@ -131,4 +131,6 @@ async function billingAddress() {
   }
 }
 
-document.querySelector('#checkoutForm').addEventListener('submit', checkoutFormHandler);
+document
+  .querySelector("#checkoutForm")
+  .addEventListener("submit", checkoutFormHandler);
