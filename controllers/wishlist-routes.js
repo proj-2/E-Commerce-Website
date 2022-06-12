@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const { User, Product, Category, Tag, ShippingProvider, ProductTag, Order, Wishlist } = require("../models/");
 
+// import validation function
 const validation = require("../utils/validation")
 
+// go to wishlist page
 router.get("/", validation, (req, res) => {
     User.findOne({
         where: {
@@ -37,23 +39,24 @@ router.get("/", validation, (req, res) => {
         }
     })
         .then(wishlistData => {
-            
+            // get wishlist data
             const initialWishlistData = wishlistData.get({ plain: true }).product_wishlist;
-            
+            // store curRate, currency in each product data
             const wishlists = initialWishlistData.map(item => ({
                 ...item,
                 curRate: req.session.curRate,
                 currency: req.session.currency
             }));
 
-            res.render('wishlist', { loggedIn: req.session.loggedIn, wishlists });
+            res.render('wishlist', { wishlists, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        })
+        });
 });
 
+// delete wishlist data
 router.post("/delete", (req, res) => {
     Wishlist.destroy({
         where: {
@@ -66,6 +69,6 @@ router.post("/delete", (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-})
+});
 
 module.exports = router;

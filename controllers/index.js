@@ -4,10 +4,10 @@ const router = require("express").Router();
 const apiRoutes = require("./api");
 const homeRoutes = require("./home-routes");
 const searchRoutes = require("./search-routes");
-const profileRoutes = require("./profileRoutes");
+const profileRoutes = require("./profile-routes");
 const orderRoutes = require("./order-routes");
-const checkoutRoutes = require("./checkoutRoutes");
-const wishlistRoutes = require("./wishlistRoutes");
+const checkoutRoutes = require("./checkout-routes");
+const wishlistRoutes = require("./wishlist-routes");
 const historyRoutes = require("./history-routes");
 
 // api
