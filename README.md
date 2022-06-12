@@ -96,10 +96,10 @@ WHEN I submit a verification form
 THEN I can be given a verification status
 ```
 
-![](</public/images/2022-06-07%20(1).png>)
-![](</public/images/2022-06-11%20(8).png>)
-![](</public/images/2022-06-11%20(4).png>)
-![](</public/images/2022-06-11%20(5).png>)
-![](</public/images/2022-06-11%20(7).png>)
-![](</public/images/2022-06-07%20(3).png>)
-![](/public/images/2022-06-07.png)
+![](/public/images/1.png)
+![](/public/images/2.png)
+![](/public/images/3.png)
+![](/public/images/4.png)
+![](/public/images/5.png)
+![](/public/images/6.png)
+![](/public/images/7.png)
