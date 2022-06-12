@@ -25,7 +25,7 @@ async function deleteOrder(product_id) {
   const ok_btn = document.querySelector('#conf-ok-btn');
 
   // fetch orderDelete to delete the item from Order data
-  const response = await fetch("/orderDelete", {
+  const response = await fetch("/order/delete", {
     method: "post",
     body: JSON.stringify({
       product_id,
