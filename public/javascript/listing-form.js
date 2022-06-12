@@ -49,14 +49,16 @@ async function listingFormHandler(event) {
         modal.classList.remove('invisible');
         modal_title.innerHTML = 'Invalid information';
         err_msg.innerHTML = 'SKU must be within 9 digits.';
-    } else if (length || width || height || dimension_units || weight || weight_units) {
-        if (!length || !width || !height || !dimension_units || !weight || !weight_units) {
-            modal.classList.remove('invisible');
-            modal_title.innerHTML = 'Invalid information';
-            err_msg.innerHTML = 'Please enter all the size and weight info if any of the options entered.';
-        }
     // or else, process the listing
     } else {
+        if (length || width || height || dimension_units || weight || weight_units) {
+            if (!length || !width || !height || !dimension_units || !weight || !weight_units) {
+                modal.classList.remove('invisible');
+                modal_title.innerHTML = 'Invalid information';
+                err_msg.innerHTML = 'Please enter all the size and weight info if any of the options entered.';
+            }        
+        }
+
         let response;
 
         // if the product length (optional info) is left blank,
