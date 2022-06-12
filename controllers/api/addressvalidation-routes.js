@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const fetch = require("node-fetch");
 const { User } = require("../../models");
-
+// text=38%20Upper%20Montagu%20Street%2C%20Westminster%20W1H%201LJ%2C%20United%20Kingdom&format=json&apiKey=YOUR_API_KEY
 require("dotenv").config();
 
 router.post("/", async (req, res) => {
