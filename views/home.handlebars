@@ -1,17 +1,17 @@
-<div class="my-16">
+<div class="my-10 md:my-16">
   <section>
-    <h1 class="text-5xl text-center text-sky-900">
+    <h1 class="text-4xl md:text-5xl text-center text-sky-900">
       Welcome To
     </h1>
     <div class="flex justify-center mt-3">
-      <a href="/" class="w-2/12">
+      <a href="/" class="w-6/12 sm:w-4/12 lg:w-3/12 xl:w-2/12">
         <image src="/images/dEv-Commerce_logo.png" alt="dEv Commerce application's logo"></image>
       </a>
     </div>
   </section>
 
-  <section class="row justify-content-center my-8">
-    <div class="d-flex flex-column text-xl">
+  <section class="row flex justify-center my-8 mx-1">
+    <div class="flex flex-col text-lg sm:text-xl">
       <form id="searchForm" class="mt-1">
         <label for="search-category">Select a Category to Search from:</label>
         <div>
@@ -19,7 +19,9 @@
             <option value="1">Hardware</option>
             <option value="2">Software</option>
           </select>
-          <button id="searchFormBtn" type="submit" class="bg-stone-200 px-2 ml-2 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Search</button>
+          <button type="submit" class="bg-stone-200 px-2 ml-2 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
+            Search
+          </button>
         </div>
       </form>
 
@@ -31,7 +33,9 @@
             <option value="{{id}}">{{name}}</option>
             {{/each}}
           </select>
-          <button id="searchTagBtn" type="submit" class="bg-stone-200 px-2 ml-2 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">Search</button>
+          <button type="submit" class="bg-stone-200 px-2 ml-2 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
+            Search
+          </button>
         </div>
       </form>
       
@@ -46,4 +50,4 @@
   </section>
 </div>
 
-<script src="/javascript/search.js"></script>
+<script src="/javascript/home.js"></script>

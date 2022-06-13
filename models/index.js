@@ -5,6 +5,8 @@ const Tag = require("./Tag");
 const ShippingProvider = require("./ShippingProvider");
 const ProductTag = require("./ProductTag");
 const Order = require("./Order");
+const Wishlist = require("./Wishlist");
+const History = require("./History")
 
 User.hasMany(Product, {
     foreignKey: 'user_id'
@@ -54,6 +56,30 @@ User.belongsToMany(Product, {
     foreignKey: 'user_id'
 })
 
+Product.belongsToMany(User, {
+    through: Wishlist,
+    as: 'user_wishlist',
+    foreignKey: 'product_id'
+});
+
+User.belongsToMany(Product, {
+    through: Wishlist,
+    as: 'product_wishlist',
+    foreignKey: 'user_id'
+});
+
+Product.belongsToMany(User, {
+    through: History,
+    as: 'user_history',
+    foreignKey: 'product_id'
+});
+
+User.belongsToMany(Product, {
+    through: History,
+    as: 'product_history',
+    foreignKey: 'user_id'
+});
+
 module.exports = {
-    User, Product, Category, Tag, ShippingProvider, ProductTag, Order
+    User, Product, Category, Tag, ShippingProvider, ProductTag, Order, Wishlist, History
 }

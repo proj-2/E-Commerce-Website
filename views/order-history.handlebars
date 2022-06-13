@@ -1,0 +1,18 @@
+<div class="my-3 p-3 grid grid-cols-12">
+    <div class="col-span-12 sm:col-span-3 lg:col-span-2 grid-cols-2">
+        <h2 class="text-3xl">Order History</h2>
+    </div>
+    <section class="bg-sky-100 mt-2 sm:ml-4 col-span-12 sm:col-span-9 lg:col-span-7 xl:col-span-6">
+        {{#if history.length}}
+        <ul class="p-2 sm:p-3">
+            {{#each history as |history|}}
+            <li class="grid grid-cols-12 p-1 mb-3 bg-white border border-slate-200">
+                {{>order-history-partial history}}
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <h3 class="ml-1 pt-1 pb-20 text-lg">Order History Empty</h3>
+        {{/if}}
+    </section>
+</div>

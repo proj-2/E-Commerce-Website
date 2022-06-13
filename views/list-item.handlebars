@@ -1,80 +1,84 @@
-<section class="flex justify-center my-3">
-    <form id="listItemForm" class="p-2">
-        <h2 class="text-3xl">List an Item to Sell on the marketplace</h2>
-        <div class="mt-2 ml-2 text-lg">
-            <div class="my-1">
-                <label for="product-name">Product Name (required): </label>
-                <input type="text" id="product-name">
+<section class="my-3 py-2">
+    <h2 class="text-3xl ml-3 mb-2">List an Item to Sell on the marketplace</h2>
+    <form id="listItemForm" class="mx-3 p-2 border-2 border-black md:w-10/12 xl:w-6/12">
+        <div class="m-2 text-lg">
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-name" class="col-span-2">Product Name (required):</label>
+                <input type="text" id="product-name" placeholder="PRODUCT NAME" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1 d-flex">
-                <label for="product-description" class="align-self-start">Description (required): </label>
-                <textarea type="text" id="product-description" class="mb-2"></textarea>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5 flex grid-rows-5 sm:grid-rows-3">
+                <label for="product-description" class="self-start col-span-2">
+                    Description (required):
+                </label>
+                <textarea type="text" id="product-description" class="col-span-3 lg:col-span-2 row-span-4 sm:row-span-auto" placeholder="DESCRIPTION"></textarea>
             </div>
-            <div class="my-1">
-                <label for="product-price">Price (required): </label>
-                <input type="number" step="0.01" id="product-price"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-price" class="col-span-2">Price (required):</label>
+                <input type="number" step="0.01" id="product-price" placeholder="PRICE"  class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-SKU">SKU (required): </label>
-                <input type="number" id="product-SKU"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-SKU" class="col-span-2">SKU (required):</label>
+                <input type="number" id="product-SKU" placeholder="SKU"  class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-origin">Shipping From (required): </label>
-                <input type="text" id="product-origin"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-origin" class="col-span-2">Shipping From (required):</label>
+                <input type="text" id="product-origin" placeholder="SHIPPING FROM" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-category">Product Category (required): </label>
-                <select id="product-category" name="product-category" class="w-3/12">
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-category" class="col-span-2">Product Category (required):</label>
+                <select id="product-category" name="product-category" class="col-span-2 lg:col-span-1">
                     <option value="1">Hardware</option>
                     <option value="2">Software</option>
                 </select>
             </div>
-            <div class="my-1">
-                <label for="product-shipping">Shipping Provider (required): </label>
-                <select id="product-shipping" name="product-shipping" class="w-3/12">
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-shipping" class="col-span-2">Shipping Provider (required):</label>
+                <select id="product-shipping" name="product-shipping" class="col-span-2 lg:col-span-1">
                     <option value="1">UPS</option>
                     <option value="2">FEDEX</option>
                     <option value="3">DHL</option>
                 </select>
             </div>
-            <div class="my-1">
-                <label for="product-stock">Stock (required): </label>
-                <input type="number" id="product-stock"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-stock" class="col-span-2">Stock (required):</label>
+                <input type="number" id="product-stock" placeholder="STOCK" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-length">Length (optional): </label>
-                <input type="number" id="product-length"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-length" class="col-span-2">Length (optional):</label>
+                <input type="number" id="product-length" placeholder="LENGTH" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-width">Width (optional): </label>
-                <input type="number" id="product-width"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-width" class="col-span-2">Width (optional):</label>
+                <input type="number" id="product-width" placeholder="WIDTH" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-height">Height (optional): </label>
-                <input type="number" id="product-height"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-height" class="col-span-2">Height (optional):</label>
+                <input type="number" id="product-height" placeholder="HEIGHT"  class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-dimension-units">Dimension Units (optional): </label>
-                <input type="text" id="product-dimension-units"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-dimension-units" class="col-span-2">Dimension Units (optional):</label>
+                <input type="text" id="product-dimension-units" placeholder="DIMENSION UNITS" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-weight">Weight (optional): </label>
-                <input type="number" id="product-weight"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-weight" class="col-span-2">Weight (optional):</label>
+                <input type="number" id="product-weight" placeholder="WEIGHT" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label for="product-weight-units">Weight Units (optional): </label>
-                <input type="text" id="product-weight-units"></input>
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label for="product-weight-units" class="col-span-2">Weight Units (optional):</label>
+                <input type="text" id="product-weight-units" placeholder="WEIGHT UNITS" class="col-span-3 lg:col-span-2" />
             </div>
-            <div class="my-1">
-                <label>Tags (required): </label>
-                {{#each tags}}
-                <input type="checkbox" name="product-tag" id="product-tag" value="{{id}}">
-                <label for="product-tag">{{name}}</label>
-                {{/each}}
+            <div class="my-3 grid grid-cols-1 sm:grid-cols-5">
+                <label class="sm:col-span-2" >Tags (required):</label>
+                <div class="sm:col-span-3">
+                    {{#each tags}}
+                    <input type="checkbox" name="product-tag" id="product-tag" value="{{id}}" class="ml-3" />
+                    <label for="product-tag">{{name}}</label>
+                    {{/each}}
+                </div>
             </div>
-            <div>
-                <button id="listItemBtn" type="submit" class="ml-1 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">List Item</button>
-            </div>
+            <button type="submit" class="m-2 bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded">
+                List Item
+            </button>
         </div>
     </form>
 </section>

@@ -1,47 +1,47 @@
-<h2 class="checkoutTitle">Checkout</h2>
+<h2 class="text-5xl text-center underline my-2">Checkout</h2>
 
-{{#if curRate}}
-<p class="totalPrice">Your Total Price is: {{cur_convert price curRate}} {{currency}}</p>
-{{else}}
-<p class="totalPrice">Your Total Price is: {{price}} USD</p>
-{{/if}}
+<p id="total-price" class="text-2xl ml-3 mb-3">Your Total Price is: 
+  {{#if curRate}}
+    {{cur_convert price curRate}} {{currency}}</p>
+  {{else}}
+    {{price}} USD
+  {{/if}}
+</p>
 
-<form class="checkout-form">
-  <div>
+<form id="checkoutForm" class="border-2 border-black mx-3 p-2">
+  <div class="mb-7">
     <h2>Credit Card Information:</h2>
-    <input type="number" id="cc-number-checkout" name="cc-number-checkout" placeholder="CREDIT CARD NUMBER" />
-    <input type="month" id="exp-checkout" name="exp-checkout" placeholder="EXP" />
-    <input type="password" id="cvc-checkout" name="cvc-checkout" placeholder="CVC" />
-  </div>
-  <br>
-  <div>
-    <h2>Shipping Address:</h2>
-    <input type="text" id="ship-street-checkout" name="ship-street-checkout" placeholder="STREET ADDRESS" />
-    <input type="text" id="ship-unit-checkout" name="ship-unit-checkout" placeholder="UNIT/APT" />
-    <input type="text" id="ship-postcode-checkout" name="ship-postcode-checkout" placeholder="POSTAL CODE" />
-    <input type="text" id="ship-province-checkout" name="ship-province-checkout" placeholder="PROVINCE/STATE" />
-    <input type="text" id="ship-country-checkout" name="ship-country-checkout" placeholder="COUNTRY" />
-  </div>
-  <br>
-  <div>
-    <h2>Billing Address:</h2>
-    <label for="confirm-bill-address">Same as shipping address?</label>
-    <input type="checkbox" id="confirm-bill-address" name="confirm-bill-address" onclick="billingAddress()" />
-    <div id="billingAddress">
-      <input type="text" id="bill-street-checkout" name="bill-street-checkout" placeholder="STREET ADDRESS" />
-      <input type="text" id="bill-unit-checkout" name="bill-unit-checkout" placeholder="UNIT/APT" />
-      <input type="text" id="bill-postcode-checkout" name="bill-postcode-checkout" placeholder="POSTAL CODE" />
-      <input type="text" id="bill-province-checkout" name="bill-province-checkout" placeholder="PROVINCE/STATE" />
-      <input type="text" id="bill-country-checkout" name="bill-country-checkout" placeholder="COUNTRY" />
+    <div>
+      <input type="number" id="cc-number-checkout" name="cc-number-checkout" placeholder="CREDIT CARD NUMBER" class="mt-2 ml-1" />
+      <input type="month" id="exp-checkout" name="exp-checkout" placeholder="EXP" class="mt-2 ml-1" />
+      <input type="password" id="cvc-checkout" name="cvc-checkout" placeholder="CVC" class="mt-2 ml-1" />
     </div>
   </div>
-  <br>
-  <div>
-    <button type="submit" id="checkout-btn"
-      class="bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded mt-2">Checkout</button>
+  <div class="mb-7">
+    <h2>Shipping Address:</h2>
+    <input type="text" id="ship-street-checkout" name="ship-street-checkout" placeholder="STREET ADDRESS" class="mt-2 ml-1" />
+    <input type="text" id="ship-unit-checkout" name="ship-unit-checkout" placeholder="UNIT/APT" class="mt-2 ml-1" />
+    <input type="text" id="ship-postcode-checkout" name="ship-postcode-checkout" placeholder="POSTAL CODE" class="mt-2 ml-1" />
+    <input type="text" id="ship-province-checkout" name="ship-province-checkout" placeholder="PROVINCE/STATE" class="mt-2 ml-1" />
+    <input type="text" id="ship-country-checkout" name="ship-country-checkout" placeholder="COUNTRY" class="mt-2 ml-1" />
+  </div>
+  <div class="mb-7">
+    <h2>Billing Address:</h2>
+    <label for="confirm-bill-address">Same as shipping address?</label>
+    <input type="checkbox" id="confirm-bill-address" name="confirm-bill-address" onclick="billingAddress()" class="mt-2 ml-1" />
+    <div id="billingAddress">
+      <input type="text" id="bill-street-checkout" name="bill-street-checkout" placeholder="STREET ADDRESS" class="mt-2 ml-1" />
+      <input type="text" id="bill-unit-checkout" name="bill-unit-checkout" placeholder="UNIT/APT" class="mt-2 ml-1" />
+      <input type="text" id="bill-postcode-checkout" name="bill-postcode-checkout" placeholder="POSTAL CODE" class="mt-2 ml-1" />
+      <input type="text" id="bill-province-checkout" name="bill-province-checkout" placeholder="PROVINCE/STATE" class="mt-2 ml-1" />
+      <input type="text" id="bill-country-checkout" name="bill-country-checkout" placeholder="COUNTRY" class="mt-2 ml-1" />
+    </div>
+  </div>
+  <div class="mb-2">
+    <button type="submit" class="bg-stone-200 px-3 py-1 text-stone-900 hover:bg-sky-900 hover:text-sky-200 rounded mt-2">
+      Checkout
+    </button>
   </div>
 </form>
-
-
 
 <script src="/javascript/checkout.js"></script>
