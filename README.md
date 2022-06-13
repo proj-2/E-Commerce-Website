@@ -22,11 +22,7 @@ A full stack E-commerce application
 
 ## Links
 
-<<<<<<< HEAD
 - Deployed application: [https://peaceful-fortress-78304.herokuapp.com/](https://peaceful-fortress-78304.herokuapp.com/)
-=======
-- Deployed application:
->>>>>>> 2b81a1b75e9f9b7e9c835bb95c9a923ea405631c
 - Github repository: [https://github.com/proj-2/E-Commerce-Website](https://github.com/proj-2/E-Commerce-Website)
 - Presentation - [https://prezi.com/view/CzreEgGWKMht88IZr6bg/](https://prezi.com/view/CzreEgGWKMht88IZr6bg/)
 
@@ -100,7 +96,6 @@ WHEN I submit a verification form
 THEN I can be given a verification status
 ```
 
-<<<<<<< HEAD
 ![](/public/images/1.png)
 ![](/public/images/2.png)
 ![](/public/images/3.png)
@@ -108,12 +103,3 @@ THEN I can be given a verification status
 ![](/public/images/5.png)
 ![](/public/images/6.png)
 ![](/public/images/7.png)
-=======
-![](</public/images/2022-06-07%20(1).png>)
-![](</public/images/2022-06-11%20(8).png>)
-![](</public/images/2022-06-11%20(4).png>)
-![](</public/images/2022-06-11%20(5).png>)
-![](</public/images/2022-06-11%20(7).png>)
-![](</public/images/2022-06-07%20(3).png>)
-![](/public/images/2022-06-07.png)
->>>>>>> 2b81a1b75e9f9b7e9c835bb95c9a923ea405631c
